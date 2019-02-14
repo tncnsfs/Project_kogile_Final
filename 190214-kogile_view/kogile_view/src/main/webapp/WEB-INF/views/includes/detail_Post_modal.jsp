@@ -76,6 +76,34 @@
 		</div>
 	</div>
 	
+	
+	
+	<%@ include file="../includes/footconfig.jsp"%>
+	<script src="/resources/js/checklist.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		// 1 번 테스트 
+		/* console.log(checklistService); */
+		
+		
+		// 2번 테스트 
+		console.log("==============");
+		console.log("JS TEST");
+		
+		var p_noValue = '<c:out value = "${p_no}"/>';
+		
+		console.log("p_noValue 출력" + p_noValue);
+		
+		// for checklistService add set 
+		checklistService.add(
+			{check_title: "check_titleToAjaxTest",p_no:p_noValue},
+			function(result){
+				alert("Result: " + result);
+	}
+);
+	</script>
+	
 </body>
 
 

@@ -217,23 +217,5 @@
 		
 // -----------------------------------------------------------
 	
-	$(document).ready(function() {
-		console.log(checklistService);
-		
-		console.log("==============")
-		console.log("JS Test");
-		
-		var pNoValue = '<c:out value="${checklist.p_no}"/>';
-		
-		// for checklistService add test
-		checklistService.add(
-			{check_title: "Js Test", p_no: 2}
-			,
-			function(result) {
-				alert("Result: " + result);
-			}
-		);
-	});
-	
 	
 })(jQuery)
