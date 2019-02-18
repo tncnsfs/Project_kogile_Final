@@ -9,14 +9,14 @@ public interface ChecklistService {
 	
 	public int register(ChecklistVO cvo);
 	
-	public ChecklistVO get(int checklist_no);
+	public ChecklistVO get(Long checklist_no);
 	
 	public int modify(ChecklistVO cvo);
 	
-	public int remove(int checklist_no);
+	public int remove(Long checklist_no);
 	
 	public List<ChecklistVO> getList(Criteria cri, int p_no);
-//	public List<ChecklistVO> getList();
+
 
 	
 }

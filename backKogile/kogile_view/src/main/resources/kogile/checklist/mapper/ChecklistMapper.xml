@@ -26,9 +26,12 @@
 	    where checklist_no = #{checklist_no}
 	</update>
 	
-	<!-- 데이터 출력 select문 -->
+	
+	
+	<!-- List<ChecklistVO> -->
 	<select id="getListWithPaging" resultType="kogile.checklist.domain.ChecklistVO">
-	select * from checklist 
+	select checklist_no, check_title, p_no 
+	from checklist 
 	where p_no = #{p_no} 
 	order by checklist_no asc
 	</select>

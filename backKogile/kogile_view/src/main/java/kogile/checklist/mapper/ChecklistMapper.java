@@ -12,8 +12,9 @@ public interface ChecklistMapper {
 
 	
 	public int insert(ChecklistVO cvo);
-	public ChecklistVO read(int checklist_no);
-	public int delete(int checklist_no);
+	
+	public ChecklistVO read(Long checklist_no);
+	public int delete(Long checklist_no);
 	public int update(ChecklistVO cvo);
 	
 	public List<ChecklistVO> getListWithPaging(

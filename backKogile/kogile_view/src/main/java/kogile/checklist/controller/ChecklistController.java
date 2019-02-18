@@ -63,14 +63,14 @@ public class ChecklistController {
 					MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_UTF8_VALUE
 	})
-	public ResponseEntity<ChecklistVO> get(@PathVariable("checklist_no") int checklist_no){
+	public ResponseEntity<ChecklistVO> get(@PathVariable("checklist_no") Long checklist_no){
 		log.info("get: " + checklist_no);
 		return new ResponseEntity<>(service.get(checklist_no), HttpStatus.OK);
 	}
 	
 	
 	@DeleteMapping(value = "/{checklist_no}", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(@PathVariable("checklist_no") int checklist_no){
+	public ResponseEntity<String> remove(@PathVariable("checklist_no") Long checklist_no){
 		
 		log.info("remove" + checklist_no);
 		
@@ -86,7 +86,7 @@ public class ChecklistController {
 				produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> modify(
 							@RequestBody ChecklistVO cvo,
-							@PathVariable("checklist_no") int checklist_no){
+							@PathVariable("checklist_no") Long checklist_no){
 		
 					cvo.setChecklist_no(checklist_no);
 					log.info("checklist_no" + checklist_no);
