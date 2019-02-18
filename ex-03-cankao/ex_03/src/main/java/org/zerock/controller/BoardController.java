@@ -68,23 +68,31 @@ public class BoardController {
 	
 	// 수정처리와 테스트
 	@GetMapping({"/get","/modify"})
-	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri")
-			Criteria cri, Model model){
+	public void get(
+			@RequestParam("bno") Long bno, 
+			@ModelAttribute("cri") Criteria cri, 
+			Model model){
+		
 		log.info("/get or modify");
+		
 		model.addAttribute("board", service.get(bno));
 		
 		}
 		
 	// 수정처리와 테스트
 	@PostMapping("/modify")
-	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr){
+	public String modify(
+			BoardVO board, 
+			@ModelAttribute("cri") Criteria cri, 
+			RedirectAttributes rttr){
 		log.info("modify : " + board );
 				
 		if(service.modify(board)){
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		// uriComponentsBuilder 클래스 사용이후 아래 내용 필요 없음 , 자동 처리해준다고 함 , Crietia에서 정의
+		// uriComponentsBuilder 클래스 사용이후 아래 내용 필요 없음 , 
+		// 자동 처리해준다고 함 , Crietia에서 정의
 /*		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		rttr.addAttribute("type", cri.getType());

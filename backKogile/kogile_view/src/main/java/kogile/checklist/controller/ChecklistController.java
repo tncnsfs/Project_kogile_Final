@@ -40,7 +40,7 @@ public class ChecklistController {
 		return insertCount;
 	}
 	
-	// 특정 post 내용 조회 
+	// post p_no 기준 checklist  
 	@GetMapping(value = "/pages/{p_no}/{page}",
 			produces = {
 					MediaType.APPLICATION_XML_VALUE,
@@ -58,19 +58,26 @@ public class ChecklistController {
 		return new ResponseEntity<>(service.getList(cri, p_no),HttpStatus.OK);
 	}
 	
+	
+	// 체크리스트 1개 조회 
 	@GetMapping(value = "/{checklist_no}",
 			produces = {
 					MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_UTF8_VALUE
 	})
-	public ResponseEntity<ChecklistVO> get(@PathVariable("checklist_no") Long checklist_no){
+	public ResponseEntity<ChecklistVO> get(
+			@PathVariable("checklist_no") Long checklist_no){
+		
 		log.info("get: " + checklist_no);
-		return new ResponseEntity<>(service.get(checklist_no), HttpStatus.OK);
+		return new ResponseEntity<>(
+				service.get(checklist_no), HttpStatus.OK);
 	}
 	
 	
-	@DeleteMapping(value = "/{checklist_no}", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(@PathVariable("checklist_no") Long checklist_no){
+	@DeleteMapping(value = "/{checklist_no}", 
+			produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> remove(
+			@PathVariable("checklist_no") Long checklist_no){
 		
 		log.info("remove" + checklist_no);
 		
