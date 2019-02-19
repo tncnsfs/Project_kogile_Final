@@ -49,11 +49,18 @@
 							<div class="addcard_holder holder">
 								<h3 class="title_c">ADD TO CARD</h3>
 								<div class="btn_list">
-									<a href="#" class="mem_btn">Members</a> <a id="MY_btn_label"
-										href="#" class="label_btn" role="button" data-toggle="popover"
-										data-trigger="focus" title="Label" data-content="">Labels</a>
-									<a id="MY_btn_check" href="#" class="check_btn"
-										data-toggle="modal" data-target="#detail_checklist_modal">Checklist</a>
+									<a href="#" class="mem_btn">Members</a> 
+									<a id="MY_btn_label"
+										href="#" class="label_btn" 
+										role="button" 
+										data-toggle="popover"
+										data-trigger="focus" title="Label" 
+										data-content="">Labels</a>
+									<a id="MY_btn_check" href="#" 
+										class="check_btn"
+										data-toggle="modal" 
+										data-target="#detail_checklist_modal">Checklist</a>
+										
 									<a href="#" class="due_btn">Due Date</a> <a href="#"
 										class="atta_btn">Attachment</a>
 								</div>
@@ -148,34 +155,33 @@
 	<%@ include file="../../includes/footconfig.jsp"%>
 	<script src="/resources/js/detailPost.js"></script>
 	<script src="/resources/js/checklist.js"></script>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){
-	
-	/*	var operForm = $("#operForm");
-		
- 		$("button[data-oper='modify']").on("click", function(e){
-			operForm.attr("action","/kogile/checklist/modify").submit();
-		}); */
-	console.log(ckService);
-	console.log("==========");
-	console.log("js Test add");
-	
-	var pnoValue = '<c:out value="${post.p_no }"/>';
-	
-/* 	ckService.add(
-		{
-			check_title: "JS Test", 
-			p_no : pnoValue
-		}
-		,
-		function(result){
-			alert("Result: "+ result);
-		}
-		
-	); */
-	});
-	</script>
+	<!-- <script type="text/javascript">
+		$(document).ready(function() {
+
+			/*	var operForm = $("#operForm");
+				
+				$("button[data-oper='modify']").on("click", function(e){
+					operForm.attr("action","/kogile/checklist/modify").submit();
+				}); */
+			console.log(ckService);
+			console.log("==========");
+			console.log("js Test add");
+
+			var pnoValue = '<c:out value="${post.p_no }"/>';
+
+			/* 	ckService.add(
+			 {
+			 check_title: "JS Test", 
+			 p_no : pnoValue
+			 }
+			 ,
+			 function(result){
+			 alert("Result: "+ result);
+			 }
+			
+			 ); */
+		});
+	</script> -->
 
 </body>
 </html>
