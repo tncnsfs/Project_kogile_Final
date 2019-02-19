@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kogile.invite.mapper.InviteMapper">
+
+	<!-- 검색 쿼리문 -->
+	<select id="searchList" parameterType="kogile.invite.domain.SearchVO" resultType="kogile.invite.domain.SearchListVO">
+
+		select distinct t.total_m_no as no, e.exter_mem_name as name, e.exter_m_email as mail
+		from external_m_info e join total_member t
+		on
+		t.EXTER_M_NO = e.EXTER_M_NO
+		<where>
+		t.total_m_no LIKE '%' || #{search} || '%' or e.EXTER_MEM_NAME LIKE '%' || #{search} || '%' or e.exter_m_email LIKE '%' || #{search} || '%'
+		</where>
+		
+		UNION
+
+		select distinct t.total_m_no as no, i.member_name as name, i.email as mail
+		from inter_m_info i join total_member t
+		on
+		t.member_no = i.member_no
+		<where>
+		t.total_m_no LIKE '%' || #{search} || '%' or i.email LIKE '%' || #{search} || '%' or i.member_name LIKE '%' || #{search} || '%'
+		</where>
+		
+	</select>
+	
+			
+	<!-- 초대쿼리문 -->	
+	<select id="invite" resultType="kogile.invite.domain.InviteVO">
+	select distinct t.total_m_no as total_m_no, n.MEMBER_NAME as name, n.EMAIL as mail, i.grade as grade, i.INVITE_NO as invite_no
+	from invite i 
+	join total_member t
+	on i.total_m_no =
+	t.total_m_no
+	join inter_m_info n
+	on n.MEMBER_NO = t.MEMBER_NO
+	<where>
+	i.TOTAL_M_NO = t.TOTAL_M_NO and i.PJT_NO=#{pjt_no}
+	</where>
+	
+	UNION
+	
+	select distinct t.total_m_no as total_m_no, e.EXTER_MEM_NAME as name, e.EXTER_M_EMAIL as mail, i.grade as grade, i.INVITE_NO as invite_no
+	from invite i
+	join total_member t
+	on i.total_m_no = t.total_m_no
+	join external_m_info e
+	on e.exter_m_no = t.exter_m_no
+	<where>
+	i.TOTAL_M_NO = t.TOTAL_M_NO and i.PJT_NO=#{pjt_no}
+	</where>
+	
+	</select>
+	
+	<insert id="insertInvite" parameterType="kogile.invite.domain.InviteVO">
+		insert into invite
+		values(invite_seq.nextval, 'normal', #{pjt_no}, #{total_m_no})
+	</insert>
+	
+</mapper>
+
