@@ -4,9 +4,11 @@
 			insertCheck();
 		})
 		
-		$('#insertCheck').click(function(){
+		$('*').click(function(){
 			checklist();
 		})
+		
+		
 		
 	});
 	
@@ -50,7 +52,8 @@
 			var txt = '<div id = "cklist01">'; 
 //				var txt = '';
 				for(var i = 0; i<data.length; i++){
-					txt += '<li>' + data[i].check_title + '</li>';  
+					
+					txt += '<div>' + data[i].check_title + '</div>';  
 					txt += '<textarea class="field full single-line" dir="auto">';
 					txt += '</textarea>';
 				}
@@ -58,8 +61,6 @@
 				
 				$("#cklist").html(txt);
 			});
-		
-		 
 	}
 	// 자동 입력되게 하기
 })(jQuery)
