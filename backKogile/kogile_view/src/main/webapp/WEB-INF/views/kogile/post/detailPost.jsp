@@ -107,8 +107,7 @@
 								<h4>
 									<b>
 									체크리스트
-									<div id="checklist">
-									<li></li>
+									<div id="cklist">cklist1
 									<!-- 이사이 checklist 들여보내기  -->
 									</div>
 									</b>

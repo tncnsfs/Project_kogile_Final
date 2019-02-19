@@ -29,28 +29,21 @@
 	}
 	
 	function checklist(){
-		var p_no = $('#p_no').val()
+		var p_no = $('#p_no').val();
 		
-// /kogile/checklist/pages/{p_no}/{page}
 		$.getJSON("/kogile/checklist/pages/" + p_no + "/1" + ".json")
-			.then(function(data){
+			.then(function(data) {
 				console.log(data);
-				
-			for (var i =0; i<data.length; i++){
-			var txt = '';
-			txt += '<div>';
-			txt += data.check_title;
-			txt += '</div>';
-				
-				if(data.p_no == null){
-					$('div').find('#checklist').html(txt);
-				}else{
-					$('div').find('#checklist').html(txt);
+				var txt = '<ol id = "cklist01">';
+				for(var i = 0; i<data.length; i++){
+					txt += '<li>' + data[i].check_title + '</li>';
 				}
-			}
-		}).catch(function(err){
-			console.log(err);
-		})
+				txt += '</ol>';
+				$("#cklist").html(txt);
+
+			});
+		
+				
 	}
 	// 자동 입력되게 하기
 })(jQuery)

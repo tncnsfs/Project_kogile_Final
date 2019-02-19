@@ -7,7 +7,7 @@ $(function(){
 			type: 'get',
 			dataType: 'json',
 			success : function(data){
-				$('#dictionary01').empty();
+				$('#dic01').empty();
 				
 				data.sort(function(a,b){
 					if(a.No > b.No){
@@ -39,7 +39,7 @@ $(function(){
 					html += '</table>';
 					html += '</div>';
 					
-					var $dict01 = $('#dictionary01').append(html);
+					var $dict01 = $('#dic01').append(html);
 					
 /*						  $("#myInput").on("keyup", function() {
 						    var value = $(this).val().toLowerCase();
