@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="dictionary.css" type="text/css" media="screen" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="blockUI.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+		$.ajaxSetup({type: "GET", dataType: "json"});
+		
+		$.ajax({
+			url:"server.jsp",
+			success: function(data, status){
+				$.each(data, function(index, entry){
+					var html = '<div class="entry">';
+					html += '<h3 class="term">' + entry.term + '</h3>';
+					html += '<div class="part">' + entry.part + '</div>';
+					html += '<div class="definition">' + entry.definition +'</div>';
+					html += '</div>';
+					
+					$('#result').append(html);
+					
+				});//end each
+			},//end success
+			error : function(request, status){
+				window.alert("AjaxServerError : " + status);
+			},
+			complete : function(xhr, status){
+				$.unblockUI({
+						fadeOut:200							
+				});
+			},
+			beforeSend: function(xhr){
+				$.blockUI({
+					message : "<img src='jQuery.jpg'>Loding...</img>",
+					backgroundColor : '#000',
+					css : {
+						border : '2px solid #a00' 
+					},
+					cursor: "wait",
+					fadeIn: 200,
+					overlayCSS: {
+						backgroundColor: '#000',
+						opacity: 0.8
+					},
+					growICSS:{
+						backgroundColor: '#FFFFFF'
+					}//end growICSS
+				});//end blockUI
+			}//end beforeSend
+		});//end ajax			 
+});			
+
+</script>
+</head>
+<body>
+
+	<div id="result"></div>
+
+</body>
+</html>
+
+
+
+

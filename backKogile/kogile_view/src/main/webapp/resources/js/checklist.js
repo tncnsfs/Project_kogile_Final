@@ -3,6 +3,8 @@
 		$('#insertCheck').on('click', function(){
 			insertCheck();
 		})
+		
+		checklist();
 	});
 	
 	function insertCheck(){
@@ -26,41 +28,32 @@
 		});
 	}
 	
+	function checklist(){
+		var p_no = $('#p_no').val()
+		
+// /kogile/checklist/pages/{p_no}/{page}
+		$.getJSON("/kogile/checklist/pages/" + p_no + "/1" + ".json")
+			.then(function(data){
+				console.log(data);
+				
+			for (var i =0; i<data.length; i++){
+			var txt = '';
+			txt += '<div>';
+			txt += data.check_title;
+			txt += '</div>';
+				
+				if(data.p_no == null){
+					$('div').find('#checklist').html(txt);
+				}else{
+					$('div').find('#checklist').html(txt);
+				}
+			}
+		}).catch(function(err){
+			console.log(err);
+		})
+	}
+	// 자동 입력되게 하기
 })(jQuery)
 
-
 	console.log("CheckList Module...");
-	
-//	var ckService = 
-		
-		/* var ckService = (function(){
-				function add(data, callback, error){
-			const data = {
-				p_no : $('#p_no').val(),
-				check_title : $("input[name=check_title]").val()
-			}
-			console.log("add checklist.=> "+ data);*/
-		
-		/*$.ajax({
-			type : "post",
-			url : "/kogile/checklist/new",
-			data : JSON.stringify("data"),
-			contentType : "application/json; charset=utf-8", 
-			
-			success : function(result, status, xhr){
-				if(callback){
-					callback(result);
-				}
-			},
-			error : function(xhr, status, er){
-				if(error){
-					error(er);
-				}
-			}
-		})
-		}
-		
-			
-		return {add:add};
-})(jQuery);*/
 	

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"> -->
+
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<title>카펫정보 1 페이지 | 바오밥카페트</title>
+<link href="http://www.baobabcarpet.com/css/default.css"
+	rel="stylesheet">
+<link href="http://www.baobabcarpet.com/css/sub.css" rel="stylesheet"
+	type="text/css">
+
+
+<link rel="stylesheet" href="proj_003.css" type="text/css"
+	media="screen" />
+<script src="jquery.js" type="text/javascript"></script>
+<script src="dictionary001.js" type="text/javascript"></script>
+
+
+
+<script>
+        // 자바스크립트에서 사용하는 전역변수 선언
+	var g5_url = "http://www.baobabcarpet.com";
+	var g5_bbs_url = "http://www.baobabcarpet.com/bbs";
+	var g5_is_member = "";
+	var g5_is_admin = "";
+	var g5_is_mobile = "";
+	var g5_bo_table = "31";
+	var g5_sca = "";
+	var g5_editor = "smarteditor2";
+	var g5_cookie_domain = "";
+</script>
+<script src="http://www.baobabcarpet.com/js/jquery-1.8.3.min.js"></script>
+<script src="http://www.baobabcarpet.com/js/jquery.menu.js"></script>
+<script src="http://www.baobabcarpet.com/js/common.js"></script>
+<script src="http://www.baobabcarpet.com/js/wrest.js"></script>
+
+</head>
+
+<body>
+
+
+
+	<div id="quick_wrap">
+		<div id="quick_close">
+			<a class="quick_open_btn" href="#null"><img
+				src="http://www.baobabcarpet.com/img/open.png"></a>
+		</div>
+		<div id="quick_open" style="display: none;">
+			<div class="quick_close_btn">
+				<a href="#null"><img
+					src="http://www.baobabcarpet.com/img/close.png"></a>
+			</div>
+			<div class="quick_open_cnt">
+				<a href="http://www.baobabcarpet.com/img/download/cadal.pdf"><img
+					src="http://www.baobabcarpet.com/img/ctlg.jpg"></a> </
+			</div>
+			div>
+			<div class="clear"></div>
+		</div>
+		<!-- quick_right end -->
+	</div>
+	<!-- 상단 시작 { -->
+
+	<h1 id="hd_h1">카펫정보 1 페이지</h1>
+	<div id="skip_to_container">
+		<a href="#container">본문 바로가기</a>
+	</div>
+
+	<!-- 상단 시작 { -->
+	<div id="total_wrap">
+		<div id="wrap">
+
+			<div id="wrap_header">
+				<link
+					href="http://www.baobabcarpet.com/include/header/force/header_inc.css"
+					rel="stylesheet" type="text/css">
+
+				<script>
+                    function on_popup(url, wid, hei) {
+
+						window.open(url, "pop", "width=" + wid + ",height="
+								+ hei + ",scrollbars=yes,menubar=no");
+					}
+				</script>
+
+
+
+
+				<div class="header_t">
+					<h1 class="header_logo">
+						<a href="http://www.baobabcarpet.com"> <img alt="BAOBAB"
+							src="http://www.baobabcarpet.com/include/header/force/img/top_logo.png">
+						</a>
+					</h1>
+					<div class="header_gnb">
+						<style>
+</style>
+						<script>
+                            /* 메뉴 시작*/
+							$(function() {
+								var menu = $('div.menu');
+								var major = $('div.major');
+								var li_list = major.find('>ul>li');
+
+								// 서브메뉴 보이기
+								function show_menu() {
+									t = $(this);
+									li_list.removeClass('active');
+									li_list.removeClass('pactive');
+									t.parent('li').addClass('active');
+								}
+								// 서브메뉴 숨기기
+								function hide_menu() {
+									li_list.removeClass('active');
+
+									// 페이지 active 효과살리기
+									li_list.eq(2).addClass("active"); // pacitive
+
+									// 탑메뉴에 서브 포커스효과
+									$(".active").find(
+											"ul.sub > li > a[href$='31']").css(
+											"color", "#709914"); //// pacitive
+									$(".active").find(
+											"ul.sub > li > a[href$='31']").css(
+											"font-weight", "bold");
+								}
+
+								li_list.find('>a').mouseover(show_menu).focus(
+										show_menu);
+
+								menu.mouseleave(hide_menu);
+								li_list.find('ul.sub').mouseleave(hide_menu);
+								$('*:not(".menu *")').focus(hide_menu);
+
+								hide_menu();
+								/* 메뉴 끝*/
+							});
+						</script>
+						<!-- 1뎁스:시스템폰트, 2뎁스 : 시스템폰트 -->
+						<div class="gnb">
+							<div class="menu" id="menu">
+								<div class="major">
+									<ul>
+										<li class="m1"><a
+											href="http://www.baobabcarpet.com/sp.php?p=11"><span>회사소개</span></a>
+											<ul class="sub">
+												<!--sub1 -->
+												<li><a href="http://www.baobabcarpet.com/sp.php?p=11">인사말</a></li>
+												<li><a href="http://www.baobabcarpet.com/sp.php?p=12">연혁</a></li>
+												<li><a href="http://www.baobabcarpet.com/sp.php?p=13">전시장
+														오시는 길</a></li>
+											</ul></li>
+										<li class="m2"><a
+											href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21"><span>제품소개</span></a>
+											<ul class="sub">
+												<!--sub1 -->
+												<li><a
+													href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21">국산러그</a></li>
+												<li><a
+													href="http://www.baobabcarpet.com/bbs/board.php?bo_table=22">수입카페트(즉시발주가능)</a></li>
+												<li><a href="http://www.baobabcarpet.com/sp.php?p=23">수입카페트(입고2주이상)</a></li>
+											</ul></li>
+										<li class="m3 active"><a
+											href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31"><span>카펫정보</span></a>
+											<ul class="sub">
+												<!--sub1 -->
+												<li><a
+													style="color: rgb(112, 153, 20); font-weight: bold;"
+													href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31">카펫정보</a></li>
+											</ul></li>
+										<li class="m4"><a
+											href="http://www.baobabcarpet.com/sp.php?p=41"><span>연락처</span></a>
+											<ul class="sub">
+												<!--sub1 -->
+												<li><a href="http://www.baobabcarpet.com/sp.php?p=41">연락처</a></li>
+											</ul></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="clear"></div>
+				</div>
+
+
+				<div class="clear"></div>
+			</div>
+			<!-- wrap_header end -->
+
+			<div class="sub_visual">
+				<img src="http://www.baobabcarpet.com/img/sub_visual3.png">
+			</div>
+
+
+
+			<div id="wrap_sub">
+
+				<div class="sub_gnb">
+					<div class="sub_left">
+						<link
+							href="http://www.baobabcarpet.com/include/left/force/left_lnb_inc.css"
+							rel="stylesheet" type="text/css">
+
+						<div class="left_lnb">
+							<!-- 레프트메뉴 인클루드-->
+							<style>
+.new_navi {
+	
+}
+
+.ns_1 {
+	float: left;
+	width: 202px;
+	font-size: 12px;
+	height: 56px;
+	line-height: 56px;
+	background:
+		url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_off.png')
+		no-repeat left top;
+}
+
+.ns_1 a {
+	text-decoration: none;
+	color: #bdbdbd;
+	line-height: 45px;
+	padding-bottom: 11px;
+	font-size: 14px;
+	width: 202px;
+	display: block;
+	text-align: center;
+	font-family: 'Nanum Gothic';
+}
+
+/*
+	백그라운드 이미지 깔때
+	.ns_1 a:hover				{color:#fff; background:url('http://www.baobabcarpet.com/skin/leftmenu/force/img/left_bg.jpg') no-repeat left top;}
+	*/
+/* 벡그라운드 컬러를 깔때*/
+.ns_1 a:hover {
+	color: #fff;
+	background:
+		url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png')
+		no-repeat left top;
+	font-weight: bold;
+}
+
+.dis_none {
+	display: none;
+}
+</style>
+
+							<script type="text/javascript">
+                                $(function() {
+                                    if (1 > 0) {
+                                        //$imgimg = $("ul.new_navi > li:eq(0) > a > img");
+                                        //$imgimg.attr("src",$imgimg.attr("src").replace(".jpg","_over.jpg"));
+                                        $('.new_navi> li:eq(0) > a[href*=31]')
+                                            .css("color", "#fff");
+                                        $('.new_navi> li:eq(0) > a[href*=31]')
+                                            .css("font-weight", "bold");
+
+                                        /*
+                                        백그라운드 이미지를 깔때에
+                                        $('.new_navi> li:eq(0) > a[href$=31]').css("background-image","url('http://www.baobabcarpet.com/skin/leftmenu/force/img/left_bg.jpg')");
+                                         */
+                                        /* 백그라운드 컬러를 깔때에*/
+                                        $('.new_navi> li:eq(0) > a[href*="31"]')
+                                            .css("background-image",
+                                                "url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png')");
+                                    }
+                                    /*
+                                    $("ul.new_navi > li > a > img").mouseover(function(){
+                                    	$("ul.new_navi > li > a > img").each(function(idx){2013-10-23
+                                    		if((idx+1) != 1){
+                                    			$(this).attr("src",$(this).attr("src").replace("_over.jpg",".jpg"));
+                                    		}
+                                    	});
+                                    	$("#test").html($(this).attr("src"));
+                                    });
+                                     */
+                                });
+
+                            </script>
+
+							<!-- 다국어버전 사용시 외국어에적용 -->
+							<!--  -->
+
+
+							<!-- <p><img src="http://www.baobabcarpet.com/skin/leftmenu/force/img/left_tit_10.jpg" style="vertical-align:top;"></p> -->
+							<ul class="new_navi">
+								<li class="ns_1"><a
+									style='background-image: url("http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png"); color: rgb(255, 255, 255); font-weight: bold;'
+									href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31">카펫정보</a></li>
+								<div class="clear"></div>
+							</ul>
+							<!-- 레프트메뉴 인클루드-->
+						</div>
+
+					</div>
+					<div class="title_navi">
+						Home &gt; 카펫정보 &gt; <span>카펫정보</span>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+
+
+				<!-- 게시판 내용 -->
+				<div class="sub_content">
+					<div class="content_title">
+						<div class="title_subject">카펫정보</div>
+					</div>
+					<div class="content_desc">
+						<link href="http://www.baobabcarpet.com/skin/board/bbs2/style.css"
+							rel="stylesheet" type="text/css">
+						<!-- 게시판 목록 시작 -->
+						<div class="total_board_list_wrap" style="width: 100% px;">
+							<div class="board_top">
+								<!-- <img src="/home/hosting_users/ilg_bz030715c/www/skin/board/bbs2/img/icon_total.gif" align="absmiddle"> -->
+								<!-- <span style="color:#888888; font-weight:bold;">Total 2</span> -->
+							</div>
+
+							<!-- 제목 -->
+						</div>
+
+
+
+						<div class="letter" id="letter-b">
+							<h3>
+								<a href="#">B</a>
+							</h3>
+						</div>
+
+
+						<div id="dictionary01">
+						
+						</div>
+
+
+						<div class="board_button"></div>
+						<!-- 검색 -->
+						<div class="board_search" style="display: none;">
+							<form name="fsearch" method="get">
+								<input name="bo_table" type="hidden" value="31"> <input
+									name="sca" type="hidden" value="">
+								<table cellspacing="6" cellpadding="0">
+									<tbody>
+										<tr>
+											<td><select name="sfl" class="selectbox">
+													<option value="wr_subject">제목</option>
+													<option value="wr_content">내용</option>
+													<option value="wr_subject||wr_content">제목+내용</option>
+													<option value="mb_id,1">회원아이디</option>
+													<option value="mb_id,0">회원아이디(코)</option>
+													<option value="wr_name,1">글쓴이</option>
+													<option value="wr_name,0">글쓴이(코)</option>
+											</select></td>
+											<td><input name="stx" class="inputbox"
+												style="width: 120px;" required="" maxlength="15" value=""
+												itemname="검색어"></td>
+											<td><input class="bs_btn" accesskey="s" type="submit"
+												border="0" value="확인"></td>
+											<td style="display: none;"><input name="sop"
+												type="radio" value="and"> and <input name="sop"
+												type="radio" value="or"> or</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+
+					</div>
+					<!-- total_board_list_wrap 게시판전체틀끝 -->
+
+					<script type="text/javascript">
+
+                        </script>
+
+					<!-- 게시판 목록 끝 -->
+				</div>
+				<!-- content_desc end -->
+			</div>
+			<!-- sub_content end -->
+			<div class="clear"></div>
+		</div>
+		<!-- wrap_sub end -->
+		<!-- } 콘텐츠 끝 -->
+		<!-- 하단 시작 { -->
+		<div id="wrap_footer">
+			<link
+				href="http://www.baobabcarpet.com/include/footer/force/footer_inc.css"
+				rel="stylesheet" type="text/css">
+
+			<div class="footer_site_link">
+
+				<ul>
+					<li><a
+						href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21">회사소개</a></li>
+					<li>| <span><a
+							onclick="window.open('http://www.baobabcarpet.com/privacy.php','privacy','width=750,height=700,scrollbars=yes')"
+							href="#null">개인정보취급방침</a></span></li>
+					<li>| <a
+						href="/bbs/login.php?url=%2Fbbs%2Fboard.php%3Fbo_table%3D31">Admin</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="ft_info">
+				<div class="footer_t">
+					<div class="footer_logo">
+						<img alt="Baobab"
+							src="http://www.baobabcarpet.com/include/footer/force/img/ft_logo.png">
+					</div>
+					<div class="footer_txt">
+						<p>
+							바오밥카페트 | CEO : 최재영 | 사업자등록번호 : 214-88-11991 | 서울특별시 서초구 매헌로16(양재동
+							하이브랜드 리빙관 13층 1311호)<br>Tel : 02-2155-1551 | FAX :
+							02-577-6913 | E-mail : baobab@baobabcarpet.com
+						</p>
+						<p class="ft_cp">Copyright© BAOBAB. All rights reserved.</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div></div>
+				<!-- wrap_footer end -->
+
+			</div>
+			<!-- wrap end -->
+		</div>
+		<!-- total_wrap end -->
+
+
+
+		<!-- } 하단 끝 -->
+
+		<script>
+                $(function() {
+                    // 폰트 리사이즈 쿠키있으면 실행
+                    font_resize("container",
+                        get_cookie("ck_font_resize_rmv_class"),
+                        get_cookie("ck_font_resize_add_class"));
+                });
+
+            </script>

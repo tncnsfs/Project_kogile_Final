@@ -73,6 +73,7 @@
 	<!-- /#wrapper -->
 
 
+
 	<%-- <%@ include file="../includes/content_footer.jsp"%> --%>
 
 	<%@ include file="../includes/footconfig.jsp"%>

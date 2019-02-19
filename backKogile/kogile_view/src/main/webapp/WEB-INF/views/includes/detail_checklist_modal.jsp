@@ -38,6 +38,8 @@
 					<a id="insertCheck" class="btn btn-primary" href="#" data-dismiss="modal">등록</a>
 				</div>
 			</div>
+			
+			
 		</div>
 	</div>
 	

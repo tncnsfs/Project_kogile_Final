@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.7.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script>
+        $(document).ready(function () {
+           $('#my_form').validate({
+        	   rules:{
+        		   name : {
+        			   required : true,
+        			   minlength : 2
+        		   },
+           			email : 'required email',
+           			homepage: {
+           			 required : true,
+           			 url : true
+           			}
+        	   },
+        	   messages : {
+        		   name : {
+        			   required : '이름을 입력하세요.',
+        			   minlength : '{0}이상의 글자를 입력하세요.'
+        		   },
+        		   email: {
+        			   required : '�대찓�쇱쓣 �낅젰�댁＜�몄슂',
+        			   email : '�대찓���뺤떇��留욊쾶 �낅젰��二쇱꽭��
+        		   },
+        		   homepage:{
+        			   required : '�덊럹�댁� 二쇱냼瑜��낅젰�댁＜�몄슂',
+        			   url : 'URL �뺤떇��留욊쾶 �낅젰��二쇱꽭��
+        		   }
+        	   }
+           });
+        });
+    </script>
+</head>
+<body>
+    <form id="my_form">
+        <table>
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td><label>E-mail:</label></td>
+                <td><input type="text" name="email" /></td>
+            </tr>
+            <tr>
+                <td><label>Home:</label></td>
+                <td><input type="text" name="homepage" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="SEND"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+ $(document).ready(function() {   //자바스크립트 배열관리
+    var array = [
+          { name: 'Hanbit Media', link: 'http://hanbit.co.kr'},
+          { name: 'Naver', link: 'http://naver.com'},
+          { name: 'Daum', link: 'http://daum.net'}
+          ];
+    
+    $.each(array, function (index, item){    //.each()로 배열요소 순회, 전역변수
+      
+    	
+    	var output = '';                  //item은 배열요소
+       
+       output += '<a href = "' + item.link + '">';
+       output += '   <h1>' + item.name + '</h1>';
+       output += '</a>';
+       
+       document.body.innerHTML += output;
+    });
+    
+ });
+</script>
+</head>
+<body>
+
+</body>
+</html>

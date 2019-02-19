@@ -1,0 +1,10 @@
+tr {
+	boder: 1px solid gray;
+}
+
+td.career {
+	boder: 1px solid gray;
+	padding-left: 0;
+	margin: 0;
+	align-content: center;
+	}

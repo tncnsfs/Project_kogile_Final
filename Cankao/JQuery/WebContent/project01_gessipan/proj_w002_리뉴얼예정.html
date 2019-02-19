@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"> -->
+
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+    <title>카펫정보 1 페이지 | 바오밥카페트</title>
+    <link href="http://www.baobabcarpet.com/css/default.css" rel="stylesheet">
+    <link href="http://www.baobabcarpet.com/css/sub.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="proj_002.css" type="text/css" media="screen" />
+    <script type = "type="text/javascript" src = "proj_abc.js"></script>
+    <script>
+        // 자바스크립트에서 사용하는 전역변수 선언
+	var g5_url = "http://www.baobabcarpet.com";
+	var g5_bbs_url = "http://www.baobabcarpet.com/bbs";
+	var g5_is_member = "";
+	var g5_is_admin = "";
+	var g5_is_mobile = "";
+	var g5_bo_table = "31";
+	var g5_sca = "";
+	var g5_editor = "smarteditor2";
+	var g5_cookie_domain = "";
+</script>
+    <script src="http://www.baobabcarpet.com/js/jquery-1.8.3.min.js"></script>
+    <script src="http://www.baobabcarpet.com/js/jquery.menu.js"></script>
+    <script src="http://www.baobabcarpet.com/js/common.js"></script>
+    <script src="http://www.baobabcarpet.com/js/wrest.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <div id="quick_wrap">
+        <div id="quick_close">
+            <a class="quick_open_btn" href="#null"><img src="http://www.baobabcarpet.com/img/open.png"></a>
+        </div>
+        <div id="quick_open" style="display: none;">
+            <div class="quick_close_btn">
+                <a href="#null"><img src="http://www.baobabcarpet.com/img/close.png"></a>
+            </div>
+            <div class="quick_open_cnt">
+                <a href="http://www.baobabcarpet.com/img/download/cadal.pdf"><img src="http://www.baobabcarpet.com/img/ctlg.jpg"></a>
+                </ </div> div>
+                <div class="clear"></div>
+            </div>
+            <!-- quick_right end -->
+        </div>
+        <!-- 상단 시작 { -->
+
+        <h1 id="hd_h1">카펫정보 1 페이지</h1>
+        <div id="skip_to_container">
+            <a href="#container">본문 바로가기</a>
+        </div>
+
+        <!-- 상단 시작 { -->
+        <div id="total_wrap">
+            <div id="wrap">
+
+                <div id="wrap_header">
+                    <link href="http://www.baobabcarpet.com/include/header/force/header_inc.css" rel="stylesheet" type="text/css">
+
+                    <script>
+                        function on_popup(url, wid, hei) {
+
+						window.open(url, "pop", "width=" + wid + ",height="
+								+ hei + ",scrollbars=yes,menubar=no");
+					}
+				</script>
+
+                    <div class="header_t">
+                        <h1 class="header_logo">
+                            <a href="http://www.baobabcarpet.com"> <img alt="BAOBAB" src="http://www.baobabcarpet.com/include/header/force/img/top_logo.png">
+                            </a>
+                        </h1>
+                        <div class="header_gnb">
+
+                            <script>
+                                /* 메뉴 시작*/
+							$(function() {
+								var menu = $('div.menu');
+								var major = $('div.major');
+								var li_list = major.find('>ul>li');
+
+								// 서브메뉴 보이기
+								function show_menu() {
+									t = $(this);
+									li_list.removeClass('active');
+									li_list.removeClass('pactive');
+									t.parent('li').addClass('active');
+								}
+								// 서브메뉴 숨기기
+								function hide_menu() {
+									li_list.removeClass('active');
+
+									// 페이지 active 효과살리기
+									li_list.eq(2).addClass("active"); // pacitive
+
+									// 탑메뉴에 서브 포커스효과
+									$(".active").find(
+											"ul.sub > li > a[href$='31']").css(
+											"color", "#709914"); //// pacitive
+									$(".active").find(
+											"ul.sub > li > a[href$='31']").css(
+											"font-weight", "bold");
+								}
+
+								li_list.find('>a').mouseover(show_menu).focus(
+										show_menu);
+
+								menu.mouseleave(hide_menu);
+								li_list.find('ul.sub').mouseleave(hide_menu);
+								$('*:not(".menu *")').focus(hide_menu);
+
+								hide_menu();
+								/* 메뉴 끝*/
+							});
+						</script>
+                            <!-- 1뎁스:시스템폰트, 2뎁스 : 시스템폰트 -->
+                            <div class="gnb">
+                                <div class="menu" id="menu">
+                                    <div class="major">
+                                        <ul>
+                                            <li class="m1"><a href="http://www.baobabcarpet.com/sp.php?p=11"><span>회사소개</span></a>
+                                                <ul class="sub">
+                                                    <!--sub1 -->
+                                                    <li><a href="http://www.baobabcarpet.com/sp.php?p=11">인사말</a></li>
+                                                    <li><a href="http://www.baobabcarpet.com/sp.php?p=12">연혁</a></li>
+                                                    <li><a href="http://www.baobabcarpet.com/sp.php?p=13">전시장
+                                                            오시는 길</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="m2"><a href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21"><span>제품소개</span></a>
+                                                <ul class="sub">
+                                                    <!--sub1 -->
+                                                    <li><a href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21">국산러그</a></li>
+                                                    <li><a href="http://www.baobabcarpet.com/bbs/board.php?bo_table=22">수입카페트(즉시발주가능)</a></li>
+                                                    <li><a href="http://www.baobabcarpet.com/sp.php?p=23">수입카페트(입고2주이상)</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="m3 active"><a href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31"><span>카펫정보</span></a>
+                                                <ul class="sub">
+                                                    <!--sub1 -->
+                                                    <li><a style="color: rgb(112, 153, 20); font-weight: bold;" href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31">카펫정보</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="m4"><a href="http://www.baobabcarpet.com/sp.php?p=41"><span>연락처</span></a>
+                                                <ul class="sub">
+                                                    <!--sub1 -->
+                                                    <li><a href="http://www.baobabcarpet.com/sp.php?p=41">연락처</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+
+                    <div class="clear"></div>
+                </div>
+                <!-- wrap_header end -->
+
+                <div class="sub_visual">
+                    <img src="http://www.baobabcarpet.com/img/sub_visual3.png">
+                </div>
+
+
+
+                <div id="wrap_sub">
+
+                    <div class="sub_gnb">
+                        <div class="sub_left">
+                            <link href="http://www.baobabcarpet.com/include/left/force/left_lnb_inc.css" rel="stylesheet" type="text/css">
+
+                            <div class="left_lnb">
+                                <!-- 레프트메뉴 인클루드-->
+                                <style>
+                                    .new_navi {
+	
+}
+
+.ns_1 {
+	float: left;
+	width: 202px;
+	font-size: 12px;
+	height: 56px;
+	line-height: 56px;
+	background:
+		url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_off.png')
+		no-repeat left top;
+}
+
+.ns_1 a {
+	text-decoration: none;
+	color: #bdbdbd;
+	line-height: 45px;
+	padding-bottom: 11px;
+	font-size: 14px;
+	width: 202px;
+	display: block;
+	text-align: center;
+	font-family: 'Nanum Gothic';
+}
+
+/*
+	백그라운드 이미지 깔때
+	.ns_1 a:hover				{color:#fff; background:url('http://www.baobabcarpet.com/skin/leftmenu/force/img/left_bg.jpg') no-repeat left top;}
+	*/
+/* 벡그라운드 컬러를 깔때*/
+.ns_1 a:hover {
+	color: #fff;
+	background:
+		url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png')
+		no-repeat left top;
+	font-weight: bold;
+}
+
+.dis_none {
+	display: none;
+}
+</style>
+
+                                <script type="text/javascript">
+                                    $(function() {
+                                        if (1 > 0) {
+                                            //$imgimg = $("ul.new_navi > li:eq(0) > a > img");
+                                            //$imgimg.attr("src",$imgimg.attr("src").replace(".jpg","_over.jpg"));
+                                            $('.new_navi> li:eq(0) > a[href*=31]')
+                                                .css("color", "#fff");
+                                            $('.new_navi> li:eq(0) > a[href*=31]')
+                                                .css("font-weight", "bold");
+
+                                            /*
+                                            백그라운드 이미지를 깔때에
+                                            $('.new_navi> li:eq(0) > a[href$=31]').css("background-image","url('http://www.baobabcarpet.com/skin/leftmenu/force/img/left_bg.jpg')");
+                                             */
+                                            /* 백그라운드 컬러를 깔때에*/
+                                            $('.new_navi> li:eq(0) > a[href*="31"]')
+                                                .css("background-image",
+                                                    "url('http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png')");
+                                        }
+                                        /*
+                                        $("ul.new_navi > li > a > img").mouseover(function(){
+                                        	$("ul.new_navi > li > a > img").each(function(idx){2013-10-23
+                                        		if((idx+1) != 1){
+                                        			$(this).attr("src",$(this).attr("src").replace("_over.jpg",".jpg"));
+                                        		}
+                                        	});
+                                        	$("#test").html($(this).attr("src"));
+                                        });
+                                         */
+                                    });
+                                </script>
+
+                                <!-- 다국어버전 사용시 외국어에적용 -->
+                                <!--  -->
+
+
+                                <!-- <p><img src="http://www.baobabcarpet.com/skin/leftmenu/force/img/left_tit_10.jpg" style="vertical-align:top;"></p> -->
+                                <ul class="new_navi">
+                                    <li class="ns_1"><a style='background-image: url("http://www.baobabcarpet.com/skin/leftmenu/force/img/sub_gnb_on.png"); color: rgb(255, 255, 255); font-weight: bold;' href="http://www.baobabcarpet.com/bbs/board.php?bo_table=31">카펫정보</a></li>
+                                    <div class="clear"></div>
+                                </ul>
+                                <!-- 레프트메뉴 인클루드-->
+                            </div>
+
+                        </div>
+                        <div class="title_navi">
+                            Home &gt; 카펫정보 &gt; <span>카펫정보</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+
+
+                    <!-- 게시판 내용 -->
+                    <div class="sub_content">
+                        <div class="content_title">
+                            <div class="title_subject">카펫정보</div>
+                        </div>
+                        <div class="content_desc">
+                            <link href="http://www.baobabcarpet.com/skin/board/bbs2/style.css" rel="stylesheet" type="text/css">
+                            <!-- 게시판 목록 시작 -->
+                            <div class="total_board_list_wrap" style="width: 100% px;">
+                                <div class="board_top">
+                                    <!-- <img src="/home/hosting_users/ilg_bz030715c/www/skin/board/bbs2/img/icon_total.gif" align="absmiddle"> -->
+                                    <!-- <span style="color:#888888; font-weight:bold;">Total 2</span> -->
+                                </div>
+
+                                <!-- 제목 -->
+                                <form name="fboardlist" id="fboardlist" onsubmit="return fboardlist_submit(this);
+                                " action="./board_list_update.php" method="post">
+                                    <input name="bo_table" type="hidden" value="31">
+                                    <input name="sfl" type="hidden" value="">
+                                    <input name="stx" type="hidden" value="">
+                                    <input name="spt" type="hidden" value="">
+                                    <input name="sca" type="hidden" value="">
+                                    <input name="page" type="hidden" value="1">
+                                    <input name="sw" type="hidden" value="">
+                                    <input name="btn_submit" id="btn_submit" type="hidden" value="">
+
+                                    <table class="board_list" cellspacing="0" cellpadding="0">
+                                        <colgroup>
+                                            <col width="50">
+                                            <col>
+                                            <col width="110">
+                                            <col width="70">
+                                            <col width="50">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <td align="center">
+                                                    <!--지역선택 부분 -->
+                                                    <table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#A79FBF">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td bgcolor="#FFFFFF">
+                                                                    <table width="99%" border="0" cellpadding="0" cellspacing="0">
+
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td height="1" bgcolor="#E5E5E5" colspan="2"></td>
+                                                                                <td colspan="2" align="center">
+                                                                                    <table width="99%" border="0" cellpadding="0" cellspacing="0">
+
+
+                                                                                        <tbody>
+                                                                                            <tr>
+
+                                                                                                <td class="clubadmin_01">
+
+                                                                                                    <select>
+                                                                                                        <option value="서울"><a href="/_^^_/dobaemall/index.html?en_area1=00">지역선택</a></option>
+                                                                                                        <option value="서울"><a href="/_^^_/dobaemall/index.html?en_area1=01">서울</a></option>
+                                                                                                        <option value="인천"><a href="/_^^_/dobaemall/index.html?en_area1=02">인천</a></option>
+                                                                                                        <option value="대전"><a href="/_^^_/dobaemall/index.html?en_area1=03">대전</a></option>
+                                                                                                        <option value="광주"><a href="/_^^_/dobaemall/index.html?en_area1=04">광주</a></option>
+                                                                                                        <option value="대구"><a href="/_^^_/dobaemall/index.html?en_area1=05">대구</a></option>
+                                                                                                        <option value="울산"><a href="/_^^_/dobaemall/index.html?en_area1=06">울산</a></option>
+                                                                                                        <option value="부산"><a href="/_^^_/dobaemall/index.html?en_area1=07">부산</a></option>
+                                                                                                        <option value="경기"><a href="/_^^_/dobaemall/index.html?en_area1=08">경기</a></option>
+                                                                                                        <option value="강원"><a href="/_^^_/dobaemall/index.html?en_area1=09">강원</a></option>
+                                                                                                        <option value="전남"><a href="/_^^_/dobaemall/index.html?en_area1=10">전남</a></option>
+                                                                                                        <option value="전북"><a href="/_^^_/dobaemall/index.html?en_area1=11">전북</a></option>
+                                                                                                        <option value="충남"><a href="/_^^_/dobaemall/index.html?en_area1=12">충남</a></option>
+                                                                                                        <option value="충북"><a href="/_^^_/dobaemall/index.html?en_area1=13">충북</a></option>
+                                                                                                        <option value="경남"><a href="/_^^_/dobaemall/index.html?en_area1=14">경남</a></option>
+                                                                                                        <option value="경북"><a href="/_^^_/dobaemall/index.html?en_area1=15">경북</a></option>
+                                                                                                    </select>
+                                                                                                </td>
+                                                                                            </tr>
+
+
+                                                                                            <tr height="22">
+
+                                                                                                <td style="padding-left:5px;color:#008000;width:30px;font-weight: bold;">번&nbsp;&nbsp;호.</td>
+                                                                                                <td width="1" bgcolor="#E5E5E5;"></td>
+
+                                                                                                <td style="padding-left:5px;color:#000F6A;width:120px;font-weight: bold;">제&nbsp;&nbsp;&nbsp;목</td>
+                                                                                                <td width="1" bgcolor="#E5E5E5;"></td>
+
+                                                                                                <td style="padding-left:5px;color:#000F6A;width:80px;font-weight: bold;">시공경력</td>
+                                                                                                <td width="1" bgcolor="#E5E5E5;"></td>
+
+                                                                                                <td style="padding-left:5px;color:#000F6A;width:80px;font-weight: bold;">지역</td>
+                                                                                                <td width="1" bgcolor="#E5E5E5;"></td>
+
+                                                                                                <td style="padding-left:5px;color:#000F6A;width:80px;font-weight: bold;">차량</td>
+                                                                                                <td width="1" bgcolor="#E5E5E5;"></td>
+
+                                                                                                <td style="padding-left:5px;color:#000F6A;width:80px;font-weight: bold;">글쓴이 연락전화</td>
+
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="2" colspan="11"></td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=339&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">76</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년(완전..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">수원 안성 평택 오산 천안..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0102031..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=334&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">75</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">신뢰를바탕으로하..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">10년이상</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">오산수원평택송탄외경기권역</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0105527..</td>
+                                                                                            </tr>
+
+
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=329&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">74</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배.장판</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">20년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">평택.안성.오산.</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0102557..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=325&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">73</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배 장판 결로..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">10년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">수원 안산 오산 용인 평택..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">010-544..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=324&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">72</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배장판페인트조..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">수원 안양 안산 용인 신갈..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0106767..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=302&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">71</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배사</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">10년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">서울 및 수도권 전지역</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">010-335..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=289&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">70</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배바닥</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">서울경기동탄오산안성용인등전..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0104498..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=288&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">69</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배 바닥</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">서울경기동탄오산안성수원용인</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0104498..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=287&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">68</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배 바닥</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">서울경기동탄오산안성수원용인</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">0104498..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                            <tr height="22" onclick="location.href='/_^^_/dobaemall/index.html?mode=view&amp;en_id=286&amp;en_area1=08&amp;page=1'" style="cursor:pointer;">
+                                                                                                <td style="padding:5px;">67</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">도배 바닥</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">5년</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px;">동탄...화성 수원 오산 ..</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">유</td>
+                                                                                                <td></td>
+                                                                                                <td style="padding:5px">010 449..</td>
+                                                                                            </tr>
+                                                                                            <tr>
+                                                                                                <td height="1" colspan="11" bgcolor="#E5E5E5"></td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2" height="1" bgcolor="#DCDDD8"></td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table width="600" border="0" cellpadding="0" cellspacing="0">
+                                                        <!--페이지 이동 부분 -->
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="480" align="center">
+                                                                    <script language="javascript">
+                                                                    </script>
+
+                                                                    <style>
+                                                                        #pagetd {
+                                            padding: 0 9px 0 8px;
+                                            cursor: pointer;
+                                            font-size: 9pt;
+                                            color: #404040;
+                                            text-align: center;
+                                        }
+                                    </style>
+
+                                                                    <script>
+                                                                        function toPage2(val, linkString) {
+                                                                            location.href = '/_^^_/dobaemall/index.html?page=' + val + unescape(linkString);
+                                                                        }
+                                                                    </script>
+
+                                                                    <!--페이지 이동 부분 -->
+                                                                    <table cellspacing="0" cellpadding="0" border="0">
+                                                                        <tbody>
+                                                                            <tr align="center">
+                                                                                <td id="pagetd" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''">
+                                                                                    <b style="color:red">1</b>
+                                                                                </td>
+                                                                                <td width="1" nowrap="">
+                                                                                    <img src="./images/line_s.gif"></td>
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('2', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))">
+                                                                                    <font color="#404D58"><b>2</b>
+                                                                                    </font>
+                                                                                </td>
+
+                                                                                <td width="1" nowrap=""><img src="./images/line_s.gif"></td>
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('3', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))">
+                                                                                    <font color="#404D58"><b>3</b></font>
+                                                                                </td>
+                                                                                <td width="1" nowrap=""><img src="./images/line_s.gif"></td>
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('4', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))">
+                                                                                    <font color="#404D58"><b>4</b></font>
+                                                                                </td>
+                                                                                <td width="1" nowrap=""><img src="./images/line_s.gif"></td>
+
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('5', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))">
+                                                                                    <font color="#404D58"><b>5</b></font>
+                                                                                </td>
+                                                                                <td width="1" nowrap=""><img src="./images/line_s.gif"></td>
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('6', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))" style="">
+                                                                                    <font color="#404D58"><b>6</b></font>
+                                                                                </td>
+                                                                                <td width="1" nowrap=""><img src="./images/line_s.gif"></td>
+                                                                                <td id="pagetd" align="center" onmouseover="this.style.background='#F7F7F7'" onmouseout="this.style.background=''" onclick="javascript:toPage2('7', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))" style="">
+                                                                                    <font color="#404D58"><b>7</b></font>
+                                                                                </td>
+                                                                                <td align="center" width="20">
+                                                                                    <img src="./images/next_btn.gif" onclick="javascript:toPage2('8', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))" style="cursor:pointer" align="absmiddle" alt="[Next]"></td>
+                                                                                <td align="center" width="20">
+                                                                                    <img src="./images/last_btn.gif" onclick="javascript:toPage2('8', escape('&amp;en_area1=&amp;view_max=10&amp;skey=&amp;keyword='))" style="cursor:pointer" align="absmiddle" alt="[Last]"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+
+
+                                                                <!--게시글 작성 범위 -->
+                                                                <td width="120" align="right" style="padding:5px 0px 3px 0">
+                                                                    <a href="/_^^_/dobaemall/index.html?mode=write">
+                                                                        <img src="images/k_write.gif" align="absmiddle">
+                                                                    </a>
+                                                                    <a href="/_^^_/dobaemall/index.html?mode=login&amp;en_area1=08&amp;page=1">
+                                                                        <img src="images/k_admin.gif" align="absmiddle"></a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </form>
+
+
+                                <div class="board_button"></div>
+
+
+                            </div>
+                            <!-- total_board_list_wrap 게시판전체틀끝 -->
+
+                            <script type="text/javascript">
+
+                            </script>
+
+                            <!-- 게시판 목록 끝 -->
+                        </div>
+                        <!-- content_desc end -->
+                    </div>
+                    <!-- sub_content end -->
+                    <div class="clear"></div>
+                </div>
+                <!-- wrap_sub end -->
+                <!-- } 콘텐츠 끝 -->
+                <!-- 하단 시작 { -->
+                <div id="wrap_footer">
+                    <link href="http://www.baobabcarpet.com/include/footer/force/footer_inc.css" rel="stylesheet" type="text/css">
+
+                    <style>
+                        .footer_site_link {
+                            border-top: 1px solid #d7d7d7;
+                            border-bottom: 1px solid #d7d7d7;
+                            padding: 10px 0;
+                            margin-top: 40px;
+                            min-width: 1100px;
+                        }
+
+                        .footer_site_link ul {
+                            width: 1100px;
+                            margin: 0 auto;
+                        }
+
+                        .footer_site_link ul li {
+                            display: inline;
+                            margin-right: 8px;
+                            font-size: 12px;
+                            color: #5c5c5c;
+                        }
+
+                        .footer_site_link ul li span a {
+                            color: #000;
+                        }
+
+                        .footer_site_link ul li a {
+                            text-decoration: none;
+                            color: #5c5c5c;
+                            font-weight: 700;
+                        }
+
+                        .ft_info {
+                            width: 100%;
+                            background: #303033;
+                            min-width: 1100px;
+                        }
+
+                        .footer_t {
+                            margin: 0 auto;
+                            width: 1100px;
+                            padding: 20px 0;
+                        }
+
+                        .footer_logo {
+                            float: left;
+                            width: 206px;
+                        }
+
+                        .footer_txt {
+                            float: left;
+                            width: 890px;
+                            margin-top: 10px;
+                        }
+
+                        .footer_txt p {
+                            font-size: 11px;
+                            color: #cbcbcb;
+                            line-height: 20px;
+                        }
+
+                        p.ft_cp {
+                            color: #ababab;
+                            margin-top: 7px;
+                        }
+                    </style>
+
+
+
+                    <div class="footer_site_link">
+
+                        <ul>
+                            <li><a href="http://www.baobabcarpet.com/bbs/board.php?bo_table=21">회사소개</a></li>
+                            <li>| <span><a onclick="window.open('http://www.baobabcarpet.com/privacy.php','privacy','width=750,height=700,scrollbars=yes')" href="#null">개인정보취급방침</a></span></li>
+                            <li>| <a href="/bbs/login.php?url=%2Fbbs%2Fboard.php%3Fbo_table%3D31">Admin</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="ft_info">
+                        <div class="footer_t">
+                            <div class="footer_logo">
+                                <img alt="Baobab" src="http://www.baobabcarpet.com/include/footer/force/img/ft_logo.png">
+                            </div>
+                            <div class="footer_txt">
+                                <p>
+                                    바오밥카페트 | CEO : 최재영 | 사업자등록번호 : 214-88-11991 | 서울특별시 서초구
+                                    매헌로16(양재동 하이브랜드 리빙관 13층 1311호)<br>Tel : 02-2155-1551 | FAX
+                                    : 02-577-6913 | E-mail : baobab@baobabcarpet.com
+                                </p>
+                                <p class="ft_cp">Copyright© BAOBAB. All rights reserved.</p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div></div>
+                        <!-- wrap_footer end -->
+
+                    </div>
+                    <!-- wrap end -->
+                </div>
+                <!-- total_wrap end -->
+
+
+
+                <!-- } 하단 끝 -->
+
+                <script>
+                    $(function() {
+                        // 폰트 리사이즈 쿠키있으면 실행
+                        font_resize("container",
+                            get_cookie("ck_font_resize_rmv_class"),
+                            get_cookie("ck_font_resize_add_class"));
+                    });
+                </script>

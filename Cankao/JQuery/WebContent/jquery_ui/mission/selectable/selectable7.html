@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Selectable</title>
+        <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.9.custom.css">
+        <link rel="stylesheet" href="css/selectableStates.css">
+	</head>
+	<body>
+		<div id="selectables">
+			<div class="selectable">This div can be selected</div>
+			<div class="selectable">This div can be selected</div>
+			<div class="selectable">This div can be selected</div>
+			<div class="selectable">This div can be selected</div>
+			<div class="selectable">This div can be selected</div>
+		</div>
+        <script src="development-bundle/jquery-1.4.4.js"></script>
+        <script src="development-bundle/ui/jquery.ui.core.js"></script>
+        <script src="development-bundle/ui/jquery.ui.widget.js"></script>
+        <script src="development-bundle/ui/jquery.ui.mouse.js"></script>
+        <script src="development-bundle/ui/jquery.ui.selectable.js"></script>
+        <script>
+			(function($){
+				var selectableOpts = {
+					selecting: function(e, ui) {
+						$(ui.selecting).text("I am part of the selection");
+					},
+					unselecting: function(e, ui) {
+						$(ui.unselecting).text("I was part of the selection");
+					}	
+				};
+								
+				$("#selectables").selectable(selectableOpts);
+			})(jQuery);
+		</script>
+	</body>
+</html>

@@ -104,28 +104,18 @@
 							</h4>
 							<br> <br>
 
-							<div>
 								<h4>
-									<b>체크리스트</b>
+									<b>
+									체크리스트
+									<div id="checklist">
+									<li></li>
+									<!-- 이사이 checklist 들여보내기  -->
+									</div>
+									</b>
+										<%-- <input type="hidden" name="${post.pno}}"> --%>
+										
 									<%-- <c:out value="${post.p_no }"/> --%>
 								</h4>
-								<c:out value="${post.p_no }" />
-								<button data-oper='modify' class="btn btn-default">Modify</button>
-								<button data-oper='list' class="btn btn-info">List</button>
-
-								<form id='operForm' action="/detailPost/modify" method="get">
-									<input type='hidden' id='p_no' name='p_no'
-										value='<c:out value="${board.p_no}"/>'> <input
-										type='hidden' name='pageNum'
-										value='<c:out value="${cri.pageNum}"/>'> <input
-										type='hidden' name='amount'
-										value='<c:out value="${cri.amount}"/>'> <input
-										type='hidden' name='keyword'
-										value='<c:out value="${cri.keyword}"/>'> <input
-										type='hidden' name='type' value='<c:out value="${cri.type}"/>'>
-
-								</form>
-							</div>
 							<br> <br>
 
 
@@ -155,33 +145,6 @@
 	<%@ include file="../../includes/footconfig.jsp"%>
 	<script src="/resources/js/detailPost.js"></script>
 	<script src="/resources/js/checklist.js"></script>
-	<!-- <script type="text/javascript">
-		$(document).ready(function() {
-
-			/*	var operForm = $("#operForm");
-				
-				$("button[data-oper='modify']").on("click", function(e){
-					operForm.attr("action","/kogile/checklist/modify").submit();
-				}); */
-			console.log(ckService);
-			console.log("==========");
-			console.log("js Test add");
-
-			var pnoValue = '<c:out value="${post.p_no }"/>';
-
-			/* 	ckService.add(
-			 {
-			 check_title: "JS Test", 
-			 p_no : pnoValue
-			 }
-			 ,
-			 function(result){
-			 alert("Result: "+ result);
-			 }
-			
-			 ); */
-		});
-	</script> -->
 
 </body>
 </html>

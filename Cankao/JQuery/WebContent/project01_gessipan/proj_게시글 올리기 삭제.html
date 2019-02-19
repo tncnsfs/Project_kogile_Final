@@ -1,0 +1,192 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 게시판</title>
+    <style type = "text/css">
+        *{
+            padding:0;
+            margin:0;
+        }
+        textarea {
+            width:320px;
+            height:80px;
+            background:whitesmoke;
+            font-size:16px;
+        }
+        span:hover {
+            cursor:pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>계시글</h1>
+    <div id = "box">
+ 通过js实现根据用户的输入动态创建一个存放用户留言的li，
+		并且允许用户删除留言
+    
+ </div>
+    <label>
+        <textarea id = "msg" rows = "5" cols = "42"></textarea>
+    </label>
+    <input type = "button" id = "btn" value = "글 등록">
+    <button id = "calc" onclick = calc()>통계</button>
+</body>
+    <script type = "text/javascript">
+        var box = document.getElementById("box");
+        var ul = document.createElement("ul");
+        box.appendChild(ul);
+        var btn = document.getElementById("btn");
+        var msg = document.getElementById("msg");
+        var n = 0;
+        btn.onclick = function(){
+            if(msg.value === ""){
+                alert("내용 입력")
+            } else{
+                n++;
+                var li = document.createElement("li");
+                li.innerHTML = msg.value + "&nbsp;&nbsp;"+"<span>X</span>";
+                var lis = document.getElementsByTagName("li");
+                if(n === 1){
+                    ul.appendChild(li);
+//                    如果是第一条留言则用appendChild
+                }else{
+                    ul.insertBefore(li,lis[0]);
+//                    最新的留言总在第一条显示
+                }
+                msg.value = "";
+//                重置文本框
+                var span = document.getElementsByTagName("span");
+                for(var i = 0;i<span.length;i++){
+                    span[i].onclick = function(){
+                        ul.removeChild(this.parentNode);
+                        n--;
+                    }
+                }
+            }
+        };
+        function calc(){
+            alert("총"+n+"건의 글 등록")
+        }
+    </script>
+</html>
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+.wrap {
+width: 400px;
+margin: 30px auto;
+}
+textarea {
+display: block;
+width: 100%;
+height: 60px;
+}
+input {
+display: block;
+width: 60%;
+margin: 15px auto;
+}
+li {
+padding: 5px 10px;
+position: relative;
+word-break: break-all;
+}
+.red {
+color: #000;
+background: #f1f1f1;
+} 
+.pink {
+color: #000;
+background: #ccc;
+}
+a {
+position: absolute;
+right: 0;
+top: -20px;
+background: yellow;
+color: #fff;
+} 
+#list {
+margin: 0;
+padding: 0;
+list-style: none;
+font: 14px/26px "宋体";
+}
+.clos {
+position: absolute;
+top: 0;
+right: -50px;
+width: 50px;
+color: #fff;
+background: #000;
+padding: 5px 0;
+text-decoration: none;
+text-align: center;
+}
+.clos:hover {
+box-shadow: 0 0 5px rgba(0,0,0,.5)
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+var btn = document.querySelector('input');
+var text = document.querySelector('textarea');
+var list = document.querySelector('#list');
+var colors = ["red","pink"];
+var nub = 0;
+btn.onclick = function(){
+if(text.value.trim() == ""){
+alert("입력하기");
+return false;
+}
+var li = document.createElement("li");
+li.innerHTML = text.value;
+// li.className = colors[nub%colors.length];
+/* 判断a标签已经被添加，就让a标签显示出来，否则就添加 */
+if(list.children[0]&&list.children[0].className=="red"){
+li.className = "pink";
+} else {
+li.className = "red";
+}
+var a = null;
+li.onmouseover = function(){
+if(a) {
+a.style.display = "block";
+} else {
+a = document.createElement("a");
+a.href = "javascript:;";
+a.className = "clos";
+a.innerHTML = "삭제";
+a.onclick = function (){
+list.removeChild(this.parentNode);
+};
+this.appendChild(a);
+}
+};
+li.onmouseout = function(){
+a.style.display = "none";
+};
+list.insertBefore(li,list.children[0]);
+text.value = "";
+nub++;
+};
+}; 
+</script>
+</head>
+<body>
+<div>
+<div class="wrap">
+<textarea id="text"></textarea>
+<input type="button" value="계시글 ">
+<ul id="list"></ul>
+</div> 
+</body>
+</html>
