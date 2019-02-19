@@ -4,7 +4,10 @@
 			insertCheck();
 		})
 		
-		checklist();
+		$('#insertCheck').click(function(){
+			checklist();
+		})
+		
 	});
 	
 	function insertCheck(){
@@ -34,16 +37,29 @@
 		$.getJSON("/kogile/checklist/pages/" + p_no + "/1" + ".json")
 			.then(function(data) {
 				console.log(data);
-				var txt = '<ol id = "cklist01">';
-				for(var i = 0; i<data.length; i++){
-					txt += '<li>' + data[i].check_title + '</li>';
+				
+			data.sort(function(a,b){
+				if(a.no > b.no){
+					return 1;
+				}else{
+					return -1;
 				}
-				txt += '</ol>';
-				$("#cklist").html(txt);
+			})	
 
+
+			var txt = '<div id = "cklist01">'; 
+//				var txt = '';
+				for(var i = 0; i<data.length; i++){
+					txt += '<li>' + data[i].check_title + '</li>';  
+					txt += '<textarea class="field full single-line" dir="auto">';
+					txt += '</textarea>';
+				}
+				txt += '</div>';
+				
+				$("#cklist").html(txt);
 			});
 		
-				
+		 
 	}
 	// 자동 입력되게 하기
 })(jQuery)
