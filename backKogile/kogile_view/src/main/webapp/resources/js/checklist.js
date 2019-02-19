@@ -48,7 +48,7 @@
 				}
 			})	
 
-
+			// 깃에 추가 될대 12.52
 			var txt = '<div id = "cklist01">'; 
 //				var txt = '';
 				for(var i = 0; i<data.length; i++){
