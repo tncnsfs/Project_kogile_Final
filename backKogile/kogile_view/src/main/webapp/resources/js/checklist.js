@@ -4,25 +4,12 @@
 			insertCheck();
 		})
 		
-		
 		checklist();
-		
-		
-		
 //		성공 
 //		ckRemove(43); 
 		
-		
-/*		$('#cklist').on('click', "#ck_no01", function(){
-			console.log(ck_no01);
-			ckRemove();
-		});*/
-		
-		
 		$('#cklist').on('click', "div div", function(){
 			console.log($(this));
-			
-			
 			var checklist_no = $(this).find("input[name='checklist_no']").val();
 			
 			console.log("콘솔" + checklist_no);
@@ -47,6 +34,7 @@
 			url : "/kogile/checklist/new"
 		}).then(function(res){
 			console.log("성공");
+			checklist();
 		}).catch(function(e){
 			console.log(e);
 		});
@@ -73,11 +61,7 @@
 			for(var i = 0; i<data.length; i++){
 				
 				txt += '<div class = input_check>' + data[i].check_title;  
-//				txt += '<input type="hidden" id= ck_no01 name="checklist_no" value="'+ data[i].checklist_no + '"/>';
 				txt += '<input type="hidden" name="checklist_no" value="'+ data[i].checklist_no + '"/>';
-				txt += '<input type="hidden" name="checklist_no" value="'+ data[i].checklist_no + '"/>';
-
-				
 				txt += '<input type="hidden" name="check_title" value="'+ data[i].check_title +'"/>';
 				txt += '<input type="hidden" name="p_no" value="'+ data[i].p_no +'"/>';
 				txt += '</div>';  
@@ -98,7 +82,6 @@
 			type : 'delete',
 			url : "/kogile/checklist/" + checklist_no,
 			contentType : "application/json; charset=utf-8", 
-//			dataType : 'JSON'
 			
 		}).then(function(data){
 			console.log("성공");
@@ -108,6 +91,23 @@
 			console.log(e + "에러났어요..");
 		});
 	}
+	
+	function ckUpdate(checklist){
+		console.log("checklist_no: " + checklist.checklist_no);
+		
+		$.ajax({
+			type : 'put',
+			url : "kogile/checklist/" + checklist.checklist_no,
+			data : JSON.stringify(checklist),
+			contentType : "application/json; charset = utf-8",
+			success : function(result, status, xhr){
+				
+			}
+			
+		})
+	}
+	
+	
 			
 
 	

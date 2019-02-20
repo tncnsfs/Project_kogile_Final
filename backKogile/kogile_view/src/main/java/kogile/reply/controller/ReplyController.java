@@ -62,14 +62,20 @@ public class ReplyController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	//댓글수정
-	@RequestMapping(method= {RequestMethod.PUT, RequestMethod.PATCH}, value="/reply/{r_no}",
-			consumes="application/json",produces= {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> modifyReply(@RequestBody ReplyVO vo, @PathVariable("r_no") int r_no){
+	@RequestMapping(method= {RequestMethod.PUT, RequestMethod.PATCH}, 
+			value="/reply/{r_no}",
+			consumes="application/json",
+			produces= {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> modifyReply(
+			@RequestBody ReplyVO vo, 
+			@PathVariable("r_no") int r_no){
+		
 		vo.setR_no(r_no);
 		log.info("댓글번호"+ r_no);
 		int modifyCount = service.modifyReply(vo);
 		
-		return modifyCount==1? new ResponseEntity<>("성공", HttpStatus.OK)
+		return modifyCount==1
+				? new ResponseEntity<>("성공", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
