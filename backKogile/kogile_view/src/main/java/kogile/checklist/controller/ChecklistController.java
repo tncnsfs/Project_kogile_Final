@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,6 +55,7 @@ public class ChecklistController {
 		
 		Criteria cri = new Criteria(page, 3);
 		
+		
 		log.info("cri 출력:" + cri);
 		return new ResponseEntity<>(service.getList(cri, p_no),HttpStatus.OK);
 	}
@@ -66,14 +68,20 @@ public class ChecklistController {
 					MediaType.APPLICATION_JSON_UTF8_VALUE
 	})
 	public ResponseEntity<ChecklistVO> get(
-			@PathVariable("checklist_no") Long checklist_no){
+			@PathVariable("checklist_no") Long checklist_no, Model model){
 		
 		log.info("get: " + checklist_no);
+		
+		ChecklistVO checklist = service.get(checklist_no);
+		model.addAttribute("checklist", checklist);
+		
 		return new ResponseEntity<>(
 				service.get(checklist_no), HttpStatus.OK);
 	}
 	
 	
+	
+	// 삭제내용
 	@DeleteMapping(value = "/{checklist_no}", 
 			produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(
@@ -87,6 +95,8 @@ public class ChecklistController {
 	}
 	
 	
+	
+	// 수정 내역 
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH}, 
 				value = "/{checklist_no}",
 				consumes = "application/json",

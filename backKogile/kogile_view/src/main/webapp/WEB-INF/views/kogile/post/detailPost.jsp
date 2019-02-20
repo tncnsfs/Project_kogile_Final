@@ -110,9 +110,12 @@
 									<div id="cklist">cklist1
 									<!-- 이사이 checklist 들여보내기  -->
 									</div>
+									<!-- <button id="rm">rem</button> -->
+
 									</b>
 										<%-- <input type="hidden" name="${post.pno}}"> --%>
-										
+										<input type="hidden" id="checklist_no" name="${chceklist.checklist_no}}">
+										<%-- <c:out value="${checklist.checklist_no }"/> --%>
 									<%-- <c:out value="${post.p_no }"/> --%>
 								</h4>
 							<br> <br>

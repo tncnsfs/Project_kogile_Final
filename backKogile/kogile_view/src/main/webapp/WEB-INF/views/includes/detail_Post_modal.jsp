@@ -53,8 +53,10 @@
 					<div>
 						<!-- P 태그들어간다. -->
 					</div>
-					<textarea id="description_modify" class="add_input" placeholder="포스트설명..."></textarea>
-					<a id="description_modify_btn" href="#n" class="btn btn-sm btn-secondary" style="float : right;">수정</a>				
+					<textarea id="description_modify" 
+					class="add_input" placeholder="포스트설명..."></textarea>
+					<a id="description_modify_btn" href="#n" 
+					class="btn btn-sm btn-secondary" style="float : right;">수정</a>				
 				</div>
 				<!-- end 설명 -->
 				
@@ -62,10 +64,13 @@
 				<div id="reply_comment">
 				<h4><b>댓글달기</b></h4>
 				<span class="name">user</span>
-				<textarea id="insert_reply" style="margin-bottom: 3px;" class="add_input" placeholder="Write a comment..."></textarea>
+				<textarea id="insert_reply" style="margin-bottom: 3px;" 
+				class="add_input" placeholder="Write a comment..."></textarea>
 				<input type="text" class="add_tag" placeholder="@태그">
-				<a id="reply_save" href="#n" class="btn btn-sm btn-secondary" style="float : right;">등록</a>
-				<a id="reply_modify" href="#n" class="btn btn-sm btn-secondary" style="float : right;">수정</a>
+				<a id="reply_save" href="#n" 
+				class="btn btn-sm btn-secondary" style="float : right;">등록</a>
+				<a id="reply_modify" href="#n" 
+				class="btn btn-sm btn-secondary" style="float : right;">수정</a>
 				</div>
 				<!-- end reply_comment -->
 				
