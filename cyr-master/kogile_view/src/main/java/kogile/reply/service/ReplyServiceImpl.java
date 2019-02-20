@@ -46,9 +46,9 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public int writer_info(InviteVO invite) {
+	public InviteVO writer_info(int total_m_no) {
 		
-		return mapper.writer_info(invite);
+		return mapper.writer_info(total_m_no);
 	}
 
 	@Override
@@ -63,12 +63,6 @@ public class ReplyServiceImpl implements ReplyService {
 		List<TagVO> list2 = mapper.tagMember2(pjt_no);
 		list.addAll(list2);
 		return list;
-	}
-
-	@Override
-	public int replyNum() {
-		
-		return mapper.replyNum();
 	}
 
 

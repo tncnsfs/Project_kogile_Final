@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class ChecklistVO {
 	
-	private int checklist_no;
+	private Long checklist_no;
 	private String check_title;
 	private int p_no;
 

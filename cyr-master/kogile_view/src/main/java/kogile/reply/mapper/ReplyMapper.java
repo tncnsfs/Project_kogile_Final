@@ -18,7 +18,7 @@ public interface ReplyMapper {
 	
 	public List<ReplyVO> replyList2 (int p_no);
 	
-	public int writer_info (InviteVO invite);
+	public InviteVO writer_info (int total_m_no);
 	
 	public int insertTag(TagVO vo);
 	

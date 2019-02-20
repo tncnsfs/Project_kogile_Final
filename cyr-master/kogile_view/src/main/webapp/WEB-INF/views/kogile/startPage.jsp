@@ -1,4 +1,3 @@
-<%@page import="kogile.user.domain.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -49,7 +48,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<!-- <i class="fas fa-table"></i> Data Table Example -->
-						<b>Project List</b>
+						<i class="fas fa-fw fa-folder"></i> Project List
 					</div>
 					<!-- star card body -->
 					<div class="card-body">
@@ -135,5 +134,4 @@
 	<%@ include file="../includes/footconfig.jsp"%>
 	<script src="/resources/js/startPage.js"></script>
 </body>
-
 </html>

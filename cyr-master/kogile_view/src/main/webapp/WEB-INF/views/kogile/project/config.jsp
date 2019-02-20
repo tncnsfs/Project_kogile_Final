@@ -146,5 +146,6 @@
 
 
 	<%@ include file="../../includes/footconfig.jsp"%>
+	<script src="/resources/js/main_config.js"></script>
 </body>
 </html>

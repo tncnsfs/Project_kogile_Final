@@ -20,43 +20,4 @@ public class LabelServiceImpl implements LabelService {
 		return list;
 	}
 
-	@Override
-	public void insertLabel(LabelVO label) {
-		mapper.insertLabel(label);
-	}
-
-	@Override
-	public LabelVO detailLabel(int label_no) {
-		LabelVO label = mapper.detailLabel(label_no);
-		return label;
-	}
-
-	@Override
-	public int deleteLabel(int label_no) {
-		return mapper.deleteLabel(label_no);
-	}
-
-	@Override
-	public int updateLabel(LabelVO label) {
-		return mapper.updateLabel(label);
-	}
-
-	@Override
-	public List<LabelVO> listLabelInfo(int p_no) {
-		List<LabelVO> list = mapper.listLabelInfo(p_no);
-		return list;
-	}
-
-	@Override
-	public int selectLabel(LabelVO label) {
-		return mapper.selectLabel(label);
-	}
-
-	@Override
-	public int cancelLabel(LabelVO label_info) {
-		
-		return mapper.cancelLabel(label_info);
-	}
-	
-
 }

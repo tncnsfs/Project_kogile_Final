@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kogile.invite.domain.InviteVO;
 import kogile.invite.domain.SearchListVO;
 import kogile.invite.domain.SearchVO;
 import kogile.invite.mapper.InviteMapper;
@@ -30,7 +29,7 @@ public class InviteMapperTests {
 		
 	}*/
 	
-/*	@Test //�˻� ������ �Է� �׽�Ʈ
+	@Test //�˻� ������ �Է� �׽�Ʈ
 	public void testSearch(){
 		
 		SearchVO search = new SearchVO();
@@ -39,13 +38,5 @@ public class InviteMapperTests {
 		List<SearchListVO> list = mapper.searchList(search);
 		
 		list.forEach(searchList->log.info(searchList));
-	}*/
-
-	@Test
-	public void testInvite(){
-		
-		mapper.invite(1);
-		
-		
 	}
 }	

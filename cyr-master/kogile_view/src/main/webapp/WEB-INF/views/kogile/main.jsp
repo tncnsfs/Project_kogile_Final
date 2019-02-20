@@ -27,20 +27,12 @@
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin.css" rel="stylesheet">
 <link href="/resources/css/main.css" rel="stylesheet">
-
-<!-- datepicker -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-<!-- datepicker -->
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-
-<link href="/resources/css/post.css" rel="stylesheet">
-
+<script type="text/javascript">
+	
+</script>
 <title>Kogile</title>
 </head>
 <body id="page-top">
-	<input id="rw2" type="hidden" value="${pjt_no}" name="pjt_no">
 	<!-- modal -->
 	<%@ include file="../includes/format_modal.jsp"%>
 	<%@ include file="../includes/detail_Post_modal.jsp"%>
@@ -63,8 +55,6 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<i class="fas fa-table"> pjt_name</i>
-						<span id="pjname"></span>
-
 					</div>
 					
 					<div class="card-body" id="body_main">
@@ -198,7 +188,6 @@
 
 
 	<%@ include file="../includes/footconfig.jsp"%>
-	
 	<script src="/resources/js/main.js"></script>
 	<script src="/resources/js/post.js"></script>
 	<!-- <script src="/resources/js/reply.js"></script> -->

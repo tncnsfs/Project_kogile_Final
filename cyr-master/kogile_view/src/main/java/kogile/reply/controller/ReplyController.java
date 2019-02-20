@@ -1,6 +1,5 @@
 package kogile.reply.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -37,17 +36,10 @@ public class ReplyController {
 	@PostMapping(value = "/reply/new",consumes="application/json", 
 			produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> createReply(@RequestBody ReplyVO vo){
-		InviteVO invite = new InviteVO();
-		invite.setPjt_no((int)session.getAttribute("pjt_no"));
-		invite.setTotal_m_no((int)session.getAttribute("total_m_no"));
-		int info_no = service.writer_info(invite);
-		
-		vo.setInfo_no(info_no);
 		log.info("@@@@@ReplyVO@@@@@"+vo);
 		int insertCount = service.registerReply(vo);
 		log.info("글 들어간 갯수 = "+insertCount);
 		
-		System.out.println(info_no);
 		
 		return insertCount==1? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -87,8 +79,6 @@ public class ReplyController {
 			produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> createTag(@RequestBody TagVO vo){
 		log.info("@@@@@TagVO@@@@@"+vo);
-		int r_no= service.replyNum();
-		vo.setR_no(r_no);
 		int insertCount = service.registerTag(vo);
 		log.info("글 들어간 갯수 = "+insertCount);
 		
@@ -97,23 +87,12 @@ public class ReplyController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	//태그대상보기
-		@GetMapping(value="/tag/{term}",
+		@GetMapping(value="/tag/{pjt_no}",
 				produces= {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-		public ResponseEntity<List<TagVO>> showTagMember(@PathVariable("term") String term){
-			System.out.println(term);
+		public ResponseEntity<List<TagVO>> showTagMember(@PathVariable("pjt_no") int pjt_no){
 			log.info("showList@@@@@@@@@@@@@@@@@@@@@@@");
-			int pjt_no = (int)session.getAttribute("pjt_no");
-			List<TagVO> fullList = service.tagList(pjt_no);
 			
-			List<TagVO> resList = new ArrayList<TagVO>();
-			for(TagVO tag : fullList) {
-				
-				if(tag.getName().indexOf(term) != -1) {
-					resList.add(tag);
-					System.out.println(tag.getName());
-				}
-			}
-			return new ResponseEntity<>(resList,HttpStatus.OK);
+			return new ResponseEntity<>(service.tagList(pjt_no),HttpStatus.OK);
 		}
 	
 }

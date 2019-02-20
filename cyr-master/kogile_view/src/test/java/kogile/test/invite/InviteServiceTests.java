@@ -31,8 +31,8 @@ public class InviteServiceTests {
 		assertNotNull(service);
 	}
 	
-/*	@Test
-	public void testSearchList(){
+	@Test
+	public void testInviteList(){
 		
 		SearchVO search = new SearchVO();
 		
@@ -40,13 +40,5 @@ public class InviteServiceTests {
 		
 		
 		service.searchList(search).forEach(searchList -> log.info(searchList));
-	}*/
-	
-
-	@Test
-	public void testInviteList(){
-		
-		service.invite(1);
-		
 	}
 }

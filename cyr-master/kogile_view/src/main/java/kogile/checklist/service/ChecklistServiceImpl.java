@@ -22,6 +22,8 @@ public class ChecklistServiceImpl implements ChecklistService {
 	@Setter(onMethod_= @Autowired)
 	private ChecklistMapper mapper;
 	
+	
+	// 입력하기 
 	@Override
 	public int register(ChecklistVO cvo) {
 		
@@ -30,8 +32,10 @@ public class ChecklistServiceImpl implements ChecklistService {
 		return mapper.insert(cvo);
 	}
 	
+	
+	// 조회하기 
 	@Override
-	public ChecklistVO get(int checklist_no) {
+	public ChecklistVO get(Long checklist_no) {
 		// TODO Auto-generated method stub
 		
 		log.info("get..." + checklist_no);
@@ -39,6 +43,8 @@ public class ChecklistServiceImpl implements ChecklistService {
 		return mapper.read(checklist_no);
 	}
 
+	
+	// 수정하기 
 	@Override
 	public int modify(ChecklistVO cvo) {
 		
@@ -47,14 +53,18 @@ public class ChecklistServiceImpl implements ChecklistService {
 		return mapper.update(cvo);
 	}
 
+	
+	// 삭제하기 
 	@Override
-	public int remove(int checklist_no) {
+	public int remove(Long checklist_no) {
 		
 		log.info("remove..." + checklist_no);
 		
 		return mapper.delete(checklist_no);
 	}
 
+	
+	// 전체조회
 	@Override
 	public List<ChecklistVO> getList(Criteria cri, int p_no) {
 		
