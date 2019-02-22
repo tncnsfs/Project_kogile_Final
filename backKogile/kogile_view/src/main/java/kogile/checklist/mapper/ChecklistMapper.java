@@ -7,18 +7,20 @@ import org.apache.ibatis.annotations.Select;
 
 import kogile.checklist.domain.ChecklistVO;
 import kogile.checklist.domain.Criteria;
+import kogile.checklist.domain.ListVO;
 
 public interface ChecklistMapper {
 
 	
 	public int insert(ChecklistVO cvo);
-	
-	public ChecklistVO read(Long checklist_no);
-	public int delete(Long checklist_no);
+	public int delete(int checklist_no);
 	public int update(ChecklistVO cvo);
-	
-	public List<ChecklistVO> getListWithPaging(
-			@Param("cri") Criteria cri,
-			@Param("p_no") int p_no);
+	public List<ChecklistVO> read(int p_no);
 			
+//	list
+	public int insertList(ListVO list);
+	public List<ListVO> listList(int checklist_no);
+	public int deleteList(int list_no);
+	
+	
 }

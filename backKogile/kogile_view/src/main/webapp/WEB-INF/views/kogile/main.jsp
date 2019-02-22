@@ -2,14 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-	if (request.getParameter("pjt_no") == null) {
-		response.sendRedirect("/kogile/startPage");
-	} else {
-		session.removeAttribute("pjt_no");
-		session.setAttribute("pjt_no", Integer.parseInt(request.getParameter("pjt_no")));
-	}
-%>
+
 
 <!DOCTYPE html>
 <html>
@@ -27,12 +20,21 @@
 <!-- Custom styles for this template-->
 <link href="/resources/css/sb-admin.css" rel="stylesheet">
 <link href="/resources/css/main.css" rel="stylesheet">
-<script type="text/javascript">
-	
-</script>
+
+<!-- datepicker -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+<!-- datepicker -->
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
+<link href="/resources/css/post.css" rel="stylesheet">
+
 <title>Kogile</title>
 </head>
 <body id="page-top">
+	<input id="rw2" type="hidden" value="${pjt_no}" name="pjt_no">
 	<!-- modal -->
 	<%@ include file="../includes/format_modal.jsp"%>
 	<%@ include file="../includes/detail_Post_modal.jsp"%>
@@ -41,6 +43,7 @@
 
 	<!-- nav -->
 	<%@ include file="../includes/nav.jsp"%>
+	
 
 	<div id="wrapper">
 
@@ -55,11 +58,12 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<i class="fas fa-table"> pjt_name</i>
+						<span id="pjname"></span>
+
 					</div>
 					
 					<div class="card-body" id="body_main">
 						<div class="cts_board grid">
-
 							<div class="item">
 								<div class="heading">
 									<h3 class="board_title">todo</h3>
@@ -188,8 +192,10 @@
 
 
 	<%@ include file="../includes/footconfig.jsp"%>
+	
 	<script src="/resources/js/main.js"></script>
 	<script src="/resources/js/post.js"></script>
+
 	<!-- <script src="/resources/js/reply.js"></script> -->
 	<!-- <script src="/resources/js/description.js"></script> -->
 	

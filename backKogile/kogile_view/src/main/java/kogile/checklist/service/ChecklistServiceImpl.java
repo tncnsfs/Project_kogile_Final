@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kogile.checklist.domain.ChecklistVO;
 import kogile.checklist.domain.Criteria;
+import kogile.checklist.domain.ListVO;
 import kogile.checklist.mapper.ChecklistMapper;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -22,8 +23,6 @@ public class ChecklistServiceImpl implements ChecklistService {
 	@Setter(onMethod_= @Autowired)
 	private ChecklistMapper mapper;
 	
-	
-	// 입력하기 
 	@Override
 	public int register(ChecklistVO cvo) {
 		
@@ -32,19 +31,15 @@ public class ChecklistServiceImpl implements ChecklistService {
 		return mapper.insert(cvo);
 	}
 	
-	
-	// 조회하기 
-	@Override
-	public ChecklistVO get(Long checklist_no) {
-		// TODO Auto-generated method stub
-		
-		log.info("get..." + checklist_no);
-		
-		return mapper.read(checklist_no);
-	}
+//	@Override
+//	public ChecklistVO get(int checklist_no) {
+//		// TODO Auto-generated method stub
+//		
+//		log.info("get..." + checklist_no);
+//		
+//		return mapper.read(checklist_no);
+//	}
 
-	
-	// 수정하기 
 	@Override
 	public int modify(ChecklistVO cvo) {
 		
@@ -53,24 +48,37 @@ public class ChecklistServiceImpl implements ChecklistService {
 		return mapper.update(cvo);
 	}
 
-	
-	// 삭제하기 
 	@Override
-	public int remove(Long checklist_no) {
+	public int remove(int checklist_no) {
 		
 		log.info("remove..." + checklist_no);
 		
 		return mapper.delete(checklist_no);
 	}
 
-	
-	// 전체조회
 	@Override
-	public List<ChecklistVO> getList(Criteria cri, int p_no) {
+	public List<ChecklistVO> getList(int p_no) {
 		
 		log.info("get Checklist List " + p_no );
 		
-		return mapper.getListWithPaging(cri, p_no);
+		return mapper.read(p_no);
+	}
+
+	@Override
+	public int insertList(ListVO list) {
+		return mapper.insertList(list);
+	}
+
+	@Override
+	public List<ListVO> listList(int checklist_no) {
+		
+		return mapper.listList(checklist_no);
+	}
+
+	@Override
+	public int deleteList(int list_no) {
+		
+		return mapper.deleteList(list_no);
 	}
 
 

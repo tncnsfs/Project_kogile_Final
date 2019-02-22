@@ -1,5 +1,7 @@
 package kogile.test.checklist;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,19 +33,19 @@ public class ChecklistServiceTests {
 	}*/
 	
 	
-/*	@Test
-	public void testUpdate() {
-		
-		ChecklistVO cvo = service.get(3l);
-		
-		if(cvo == null){
-			return;
-		}
-		
-		cvo.setCheck_title("내용수정");
-		log.info("Modify result:" + service.modify(cvo));
-		
-	}*/
+//	@Test
+//	public void testUpdate() {
+//		
+//		ChecklistVO cvo = service.get(3);
+//		
+//		if(cvo == null){
+//			return;
+//		}
+//		
+//		cvo.setCheck_title("내용수정");
+//		log.info("Modify result:" + service.modify(cvo));
+//		
+//	}
 	
 	
 /*	@Test
@@ -57,15 +59,15 @@ public class ChecklistServiceTests {
 	public void testGet(){
 		
 		log.info(service.get(1L));
-	}
-*/	
+	}*/
 	
 	
-	@Test
+	
+/*	@Test
 	public void testGetList(){
 		
-		service.getList(null,2).forEach(boa -> log.info(boa));
-	}
+		service.getList().forEach(boa -> log.info(boa));
+	}*/
 	
 	
 	

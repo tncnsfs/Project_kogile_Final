@@ -1,9 +1,6 @@
 package kogile.test.checklist;
 
 
-import java.util.List;
-import java.util.stream.IntStream;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kogile.checklist.domain.ChecklistVO;
-import kogile.checklist.domain.Criteria;
 import kogile.checklist.mapper.ChecklistMapper;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -20,82 +16,74 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class ChecklistMapperTests {
-	
-	private Long[] cknoArr = {1l,2l,3l,4l,5l};
-	private int[] pnoArr1 = {1,2,3,4,5};
 
 	@Setter(onMethod_=@Autowired)
-	private ChecklistMapper mapper;
+	private ChecklistMapper ckmapper;
+	
+	
 	
 	
 	@Test
-	public void testMapper(){
+	public void testUpdate() {
 		
-		log.info(mapper);
+		ChecklistVO cvo = new ChecklistVO();
+		
+		cvo.setP_no(1);
+		cvo.setChecklist_no(4);
+		cvo.setCheck_title("������ ����");
+		
+		int count = ckmapper.update(cvo);
+		
+		log.info("Update Count: " + count);
+		
 	}
 	
 /*	@Test
-	public void testCreate(){
+	public void testDelete() {
 		
-		IntStream.rangeClosed(1, 10).forEach( i-> {
-			
-			ChecklistVO cvo = new ChecklistVO();
-			
-			cvo.setChecklist_no(cknoArr[i/5]);
-			cvo.setCheck_title("checklistTest" + i);
-			cvo.setP_no(2);
-			
-			mapper.insert(cvo);
-		});
+		
+		log.info("Delete count: " + ckmapper.delete(182l));
 	}*/
 	
 	
+	
 /*	@Test
-	public void testRead(){
+	public void testRead() {
 		
-		Long targetChecklist_no = 5l;
-		
-		ChecklistVO cvo = mapper.read(targetChecklist_no);
+		ChecklistVO cvo = ckmapper.read(3l);
 		
 		log.info(cvo);
-	}*/
+	}
+	*/
+	
 	
 /*	@Test
-	public void testDelete(){
+	public void testInsertSelectKey() {
 		
-		Long targetChecklist_no = 26l;
+		ChecklistVO cvo = new ChecklistVO();
+		cvo.setChecklist_no(11L);
+		cvo.setCheck_title("�׽�Ʈ");
+		cvo.setP_no(2L);
 		
-		mapper.delete(targetChecklist_no);
-		
-				
-	}*/
-	
+		ckmapper.insertSelectKey(cvo);
+	}
+*/	
 /*	@Test
-	public void testUpdate(){
+	public void testInsert() {
 		
-		Long targetChecklist_no = 10l;
+		ChecklistVO cvo = new ChecklistVO();
+		cvo.setChecklist_no(10L);
+		cvo.setCheck_title("�׽�Ʈ");
+		cvo.setP_no(2L);
 		
-		ChecklistVO cvo = mapper.read(targetChecklist_no);
+		ckmapper.insert(cvo);
+	}
+*/	
+/*	@Test
+	public void testGetList() {
 		
-		cvo.setCheck_title("Update Checklist");
-		
-		int count = mapper.update(cvo);
-		
-		log.info("Update Count" + count);
-	}*/
-	
-	
-	@Test
-	public void testList(){
-		
-		Criteria cri = new Criteria();
-		List<ChecklistVO> cvos = mapper.getListWithPaging(cri, pnoArr1[1]);
-		
-		cvos.forEach(checklist -> log.info(checklist));
+		ckmapper.getList().forEach(boa -> log.info(boa));
 		
 	}
-	
-	
-	
-	
+*/
 }

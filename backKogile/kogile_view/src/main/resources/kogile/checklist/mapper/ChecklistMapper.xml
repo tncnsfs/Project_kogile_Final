@@ -12,7 +12,9 @@
 	
 	
 	<select id="read" resultType="kogile.checklist.domain.ChecklistVO">
-		select * from checklist where checklist_no = #{checklist_no}
+		select * from checklist 
+		where p_no = #{p_no}
+		order by checklist_no
 	</select>
 	
 	
@@ -27,15 +29,19 @@
 	</update>
 	
 	
+	<insert id="insertList" parameterType="kogile.checklist.domain.ListVO">
+		insert into list
+		values(list_seq.nextval, #{list_info}, 0, #{checklist_no})
+	</insert>
 	
-	<!-- List<ChecklistVO> -->
-	<select id="getListWithPaging" resultType="kogile.checklist.domain.ChecklistVO">
-	select checklist_no, check_title, p_no 
-	from checklist 
-	where p_no = #{p_no} 
-	order by checklist_no asc
+	<select id="listList" resultType="kogile.checklist.domain.ListVO">
+		select * from list
+		where checklist_no = #{checklist_no}
 	</select>
 	
 	
+	<delete id="deleteList">
+		delete list where list_no = #{list_no}
+	</delete>
 	
 </mapper>

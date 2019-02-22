@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kogile.checklist.domain.ChecklistVO;
 import kogile.checklist.domain.Criteria;
+import kogile.checklist.domain.ListVO;
 import kogile.checklist.service.ChecklistService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -41,51 +41,27 @@ public class ChecklistController {
 		return insertCount;
 	}
 	
-	// post p_no 기준 checklist  
-	@GetMapping(value = "/pages/{p_no}/{page}",
-			produces = {
-					MediaType.APPLICATION_XML_VALUE,
-					MediaType.APPLICATION_JSON_UTF8_VALUE
-			})
-	public ResponseEntity<List<ChecklistVO>> getList(
-			@PathVariable("page") int page,
-			@PathVariable("p_no") int p_no
-			){
+	// 특정 post 내용 조회 
+	@GetMapping(value = "/readChecklist/{p_no}")
+	public ResponseEntity<List<ChecklistVO>> getList(@PathVariable("p_no") int p_no){
 		log.info("getList....");
 		
-		Criteria cri = new Criteria(page, 3);
-		
-		
-		log.info("cri 출력:" + cri);
-		return new ResponseEntity<>(service.getList(cri, p_no),HttpStatus.OK);
+		return new ResponseEntity<>(service.getList(p_no),HttpStatus.OK);
 	}
 	
-	
-	// 체크리스트 1개 조회 
-	@GetMapping(value = "/{checklist_no}",
-			produces = {
-					MediaType.APPLICATION_XML_VALUE,
-					MediaType.APPLICATION_JSON_UTF8_VALUE
-	})
-	public ResponseEntity<ChecklistVO> get(
-			@PathVariable("checklist_no") Long checklist_no, Model model){
-		
-		log.info("get: " + checklist_no);
-		
-		ChecklistVO checklist = service.get(checklist_no);
-		model.addAttribute("checklist", checklist);
-		
-		return new ResponseEntity<>(
-				service.get(checklist_no), HttpStatus.OK);
-	}
+//	@GetMapping(value = "/{checklist_no}",
+//			produces = {
+//					MediaType.APPLICATION_XML_VALUE,
+//					MediaType.APPLICATION_JSON_UTF8_VALUE
+//	})
+//	public ResponseEntity<ChecklistVO> get(@PathVariable("checklist_no") int checklist_no){
+//		log.info("get: " + checklist_no);
+//		return new ResponseEntity<>(service.get(checklist_no), HttpStatus.OK);
+//	}
 	
 	
-	
-	// 삭제내용
-	@DeleteMapping(value = "/{checklist_no}", 
-			produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(
-			@PathVariable("checklist_no") Long checklist_no){
+	@GetMapping(value = "delete_check/{checklist_no}", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> remove(@PathVariable("checklist_no") int checklist_no){
 		
 		log.info("remove" + checklist_no);
 		
@@ -94,25 +70,37 @@ public class ChecklistController {
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	
-	
-	// 수정 내역 
-	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH}, 
-				value = "/{checklist_no}",
-				consumes = "application/json",
-				produces = {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> modify(
-							@RequestBody ChecklistVO cvo,
-							@PathVariable("checklist_no") Long checklist_no){
-		
-					cvo.setChecklist_no(checklist_no);
-					log.info("checklist_no" + checklist_no);
-					log.info("modify" + cvo);
+	@PostMapping(value="/update", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> modify(@RequestBody ChecklistVO cvo){
 					
-					return service.modify(cvo) == 1
-							? new ResponseEntity<>("success", HttpStatus.OK)
-							: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return service.modify(cvo) == 1
+					? new ResponseEntity<>("success", HttpStatus.OK)
+					: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	@PostMapping(value="/insertList", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> insertList(@RequestBody ListVO list){
+		return service.insertList(list) == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
+				: new ResponseEntity<>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@GetMapping("/listList/{checklist_no}")
+	public List<ListVO> listList(@PathVariable int checklist_no){
+		return service.listList(checklist_no);
+	}
+	
+	
+	@GetMapping(value="/{list_no}",
+				produces= {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> deleteList(@PathVariable int list_no){
+		
+		log.info("deleteList-->" + list_no);
+		
+		return service.deleteList(list_no) == 1 
+				? new ResponseEntity<String>("success", HttpStatus.OK)
+				: new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+	};
+	
 	
 	
 }
