@@ -1,4 +1,4 @@
---±âÁ¸ Å×ÀÌºí Á¦°Å
+--ê¸°ì¡´ í…Œì´ë¸” ì œê±°
 
 DROP TABLE LABEL CASCADE CONSTRAINTS PURGE;
 DROP TABLE LIST CASCADE CONSTRAINTS PURGE;
@@ -29,7 +29,7 @@ CREATE TABLE CARD
 
 
 ALTER TABLE CARD
-	ADD CONSTRAINT  XPKÄ«µå PRIMARY KEY (C_NO);
+	ADD CONSTRAINT  XPKì¹´ë“œ PRIMARY KEY (C_NO);
 
 
 
@@ -42,7 +42,7 @@ CREATE TABLE CHECKLIST
 
 
 ALTER TABLE CHECKLIST
-	ADD CONSTRAINT  XPKÃ¼Å©¸®½ºÆ® PRIMARY KEY (CHECKLIST_NO);
+	ADD CONSTRAINT  XPKì²´í¬ë¦¬ìŠ¤íŠ¸ PRIMARY KEY (CHECKLIST_NO);
 
 
 
@@ -60,7 +60,7 @@ CREATE TABLE EXTERNAL_M_INFO
 
 
 ALTER TABLE EXTERNAL_M_INFO
-	ADD CONSTRAINT  XPK¿ÜºÎÈ¸¿øÁ¤º¸ PRIMARY KEY (EXTER_M_NO);
+	ADD CONSTRAINT  XPKì™¸ë¶€íšŒì›ì •ë³´ PRIMARY KEY (EXTER_M_NO);
 
 
 CREATE TABLE INTER_M_INFO
@@ -73,7 +73,7 @@ CREATE TABLE INTER_M_INFO
 
 
 ALTER TABLE INTER_M_INFO
-	ADD CONSTRAINT  XPKÀÏ¹ÝÈ¸¿øÁ¤º¸ PRIMARY KEY (MEMBER_NO);
+	ADD CONSTRAINT  XPKì¼ë°˜íšŒì›ì •ë³´ PRIMARY KEY (MEMBER_NO);
 
 
 --CREATE TABLE INTERLINKED_INFO
@@ -85,7 +85,7 @@ ALTER TABLE INTER_M_INFO
 --);
 
 --ALTER TABLE INTERLINKED_INFO
---	ADD CONSTRAINT  XPK¿¬µ¿Á¤º¸ PRIMARY KEY (INTERLINKED_NUMBER,EXTER_M_NO);
+--	ADD CONSTRAINT  XPKì—°ë™ì •ë³´ PRIMARY KEY (INTERLINKED_NUMBER,EXTER_M_NO);
 DROP TABLE TOTAL_MEMBER;
 
 CREATE TABLE TOTAL_MEMBER(TOTAL_M_NO NUMBER, EXTER_M_NO NUMBER, MEMBER_NO NUMBER);
@@ -106,7 +106,7 @@ CREATE TABLE INVITE
 
 
 ALTER TABLE INVITE
-	ADD CONSTRAINT  XPKÃÊ´ë PRIMARY KEY (INVITE_NO);
+	ADD CONSTRAINT  XPKì´ˆëŒ€ PRIMARY KEY (INVITE_NO);
 
 
 CREATE TABLE LABEL
@@ -119,7 +119,7 @@ CREATE TABLE LABEL
 
 
 ALTER TABLE LABEL
-	ADD CONSTRAINT  XPK¶óº§ PRIMARY KEY (LABEL_NO);
+	ADD CONSTRAINT  XPKë¼ë²¨ PRIMARY KEY (LABEL_NO);
 
 
 
@@ -133,7 +133,7 @@ CREATE TABLE LIST
 
 
 ALTER TABLE LIST
-	ADD CONSTRAINT  XPK¸®½ºÆ® PRIMARY KEY (LIST_NO);
+	ADD CONSTRAINT  XPKë¦¬ìŠ¤íŠ¸ PRIMARY KEY (LIST_NO);
 
 
 CREATE TABLE NOTICE
@@ -148,7 +148,7 @@ CREATE TABLE NOTICE
 
 
 ALTER TABLE NOTICE
-	ADD CONSTRAINT  XPK¾Ë¸² PRIMARY KEY (NOTICE_NO);
+	ADD CONSTRAINT  XPKì•Œë¦¼ PRIMARY KEY (NOTICE_NO);
 
 
 CREATE TABLE POST
@@ -163,7 +163,7 @@ CREATE TABLE POST
 
 
 ALTER TABLE POST
-	ADD CONSTRAINT  XPKÆ÷½ºÆ® PRIMARY KEY (P_NO);
+	ADD CONSTRAINT  XPKí¬ìŠ¤íŠ¸ PRIMARY KEY (P_NO);
 
 
 CREATE TABLE LABEL_INFO
@@ -230,9 +230,9 @@ CREATE TABLE PROJECT
 
 
 ALTER TABLE PROJECT
-	ADD CONSTRAINT  XPKÇÁ·ÎÁ§Æ® PRIMARY KEY (PJT_NO);
+	ADD CONSTRAINT  XPKí”„ë¡œì íŠ¸ PRIMARY KEY (PJT_NO);
 
---À±º´·Ï 20190114
+--ìœ¤ë³‘ë¡ 20190114
 alter table project
 add (total_m_no number not null);
 
@@ -249,12 +249,13 @@ CREATE TABLE REPLY
 	R_CONTENTS  VARCHAR2(2000)  NOT NULL ,
 	R_DATE  DATE  NOT NULL ,
     P_NO  NUMBER  NOT NULL ,	
-    INFO_NO  NUMBER  NOT NULL 
+    INFO_NO  NUMBER  NOT NULL ,
+    TAGED_NAME VARCHAR2(50)
 );
 
 
 ALTER TABLE REPLY
-	ADD CONSTRAINT  XPK´ñ±Û PRIMARY KEY (R_NO);
+	ADD CONSTRAINT  XPKëŒ“ê¸€ PRIMARY KEY (R_NO);
 
 
 CREATE TABLE TAG
@@ -266,7 +267,7 @@ CREATE TABLE TAG
 
 
 ALTER TABLE TAG
-	ADD CONSTRAINT  XPKÅÂ±× PRIMARY KEY (TAG_NO);
+	ADD CONSTRAINT  XPKíƒœê·¸ PRIMARY KEY (TAG_NO);
 
 ALTER TABLE CARD
 	ADD (CONSTRAINT  R_57 FOREIGN KEY (PJT_NO) REFERENCES PROJECT(PJT_NO)on DELETE CASCADE);
@@ -354,7 +355,7 @@ DROP SEQUENCE LABEL_INFO_NO_SEQ;
 
 DROP SEQUENCE CHARGE_INFO_NO_SEQ;
 
---Á¤Ã¶Èñ
+--ì •ì² í¬
 CREATE SEQUENCE CARD_SEQ INCREMENT BY 4;
 									
 									
@@ -365,10 +366,10 @@ CREATE SEQUENCE REPLY_SEQ;
 CREATE SEQUENCE TAG_SEQ;
 
                                                                   
---À±º´·Ï					
+--ìœ¤ë³‘ë¡					
 CREATE SEQUENCE PJT_NO INCREMENT BY 1 START WITH 1 MAXVALUE 100 MINVALUE 1;
 
---±è±Ù¿­
+--ê¹€ê·¼ì—´
   
 create sequence invite_seq 
 start with 1 increment BY 1 maxvalue 100000;
@@ -376,12 +377,12 @@ start with 1 increment BY 1 maxvalue 100000;
 create sequence notice_seq 
 start with 1 increment BY 1 maxvalue 100000;
 
---È²¼ÒÈñ
+--í™©ì†Œí¬
 CREATE SEQUENCE EXTER_M_NO_SEQ INCREMENT BY 1;
 CREATE SEQUENCE MEM_NO_SEQ INCREMENT BY 1;
 --CREATE SEQUENCE INTERLINKED_SEQ INCREMENT BY 1;
 									
---TOTAL_NUMBER·Î ¿ÜºÎÈ¸¿ø/³»ºÎÈ¸¿ø ¿©ºÎ¸¦ È®ÀÎ ÈÄ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+--TOTAL_NUMBERë¡œ ì™¸ë¶€íšŒì›/ë‚´ë¶€íšŒì› ì—¬ë¶€ë¥¼ í™•ì¸ í›„ ì •ë³´ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 
 create or replace PROCEDURE VIEW_MEMBER_INFORMATION
 (
@@ -393,17 +394,17 @@ IS
   general_member NUMBER;
   external_member NUMBER;
 BEGIN
-  -- member_numÀ» ¹Þ¾Æ¼­ TOTAL_MEMBERÅ×ÀÌºí¿¡¼­ external_member, general_member °¡Á®¿À±â.
+  -- member_numì„ ë°›ì•„ì„œ TOTAL_MEMBERí…Œì´ë¸”ì—ì„œ external_member, general_member ê°€ì ¸ì˜¤ê¸°.
   SELECT EXTER_M_NO, MEMBER_NO INTO external_member, general_member FROM TOTAL_MEMBER
   WHERE TOTAL_M_NO = member_num;
   
-  --TOTAL_NUMBERÅ×ÀÌºí¿¡¼­ °¡Á®¿Â external_member·Î ¿ÜºÎÈ¸¿øÁ¤º¸ Á¶È¸
+  --TOTAL_NUMBERí…Œì´ë¸”ì—ì„œ ê°€ì ¸ì˜¨ external_memberë¡œ ì™¸ë¶€íšŒì›ì •ë³´ ì¡°íšŒ
   IF external_member IS NOT NULL THEN
     SELECT EXTER_MEM_NAME, EXTER_M_EMAIL INTO member_name, member_email 
     FROM EXTERNAL_M_INFO
     WHERE EXTER_M_NO = external_member;
     
-  --TOTAL_NUMBERÅ×ÀÌºí¿¡¼­ °¡Á®¿Â general_member·Î ¿ÜºÎÈ¸¿øÁ¤º¸ Á¶È¸ 
+  --TOTAL_NUMBERí…Œì´ë¸”ì—ì„œ ê°€ì ¸ì˜¨ general_memberë¡œ ì™¸ë¶€íšŒì›ì •ë³´ ì¡°íšŒ 
   ELSIF general_member IS NOT NULL THEN
     SELECT MEMBER_NAME, EMAIL INTO member_email, member_name
     FROM INTER_M_INFO
@@ -413,19 +414,19 @@ BEGIN
 END VIEW_MEMBER_INFORMATION;
 /
 
---ÃÖ¼öÃá
+--ìµœìˆ˜ì¶˜
 create SEQUENCE checklist_seq;
 create SEQUENCE list_seq;
 
---ÃÖ¿ë¶ô
+--ìµœìš©ë½
 CREATE SEQUENCE CHARGE_INFO_NO_SEQ;
 CREATE SEQUENCE LABEL_INFO_NO_SEQ;
 CREATE SEQUENCE LABEL_NO_SEQ;
 CREATE SEQUENCE TOTAL_M_NO_SEQ;
 CREATE SEQUENCE INFO_NO_SEQ;
 
---È²¼ÒÈñ Æ®¸®°Å Ãß°¡ 19-01-12
--- insert µÉ¶§¸¶´Ù total_member Å×ÀÌºí¿¡µµ »õ ¸â¹ö¸¦ insert ÇØÁÖ´Â Æ®¸®°Å
+--í™©ì†Œí¬ íŠ¸ë¦¬ê±° ì¶”ê°€ 19-01-12
+-- insert ë ë•Œë§ˆë‹¤ total_member í…Œì´ë¸”ì—ë„ ìƒˆ ë©¤ë²„ë¥¼ insert í•´ì£¼ëŠ” íŠ¸ë¦¬ê±°
 CREATE OR REPLACE TRIGGER total_m_inst_trg_ext
 AFTER
 INSERT ON EXTERNAL_M_INFO
@@ -435,7 +436,7 @@ BEGIN
 END;
 /
 
--- INTER_M_INFO Å×ÀÌºí¿¡ ÇØ´ç
+-- INTER_M_INFO í…Œì´ë¸”ì— í•´ë‹¹
 CREATE OR REPLACE TRIGGER total_m_inst_trg_int
 AFTER
 INSERT ON INTER_M_INFO
@@ -445,7 +446,7 @@ BEGIN
 END;
 /
 
---TOTAL_M_NO¸¦ ¹Þ¾Æ¼­ ³»ºÎÈ¸¿øÀÎÁö ¿ÜºÎÈ¸¿øÀÎÁö ÆÇ´ÜÇÏ´Â ÇÁ·Î½ÃÀú
+--TOTAL_M_NOë¥¼ ë°›ì•„ì„œ ë‚´ë¶€íšŒì›ì¸ì§€ ì™¸ë¶€íšŒì›ì¸ì§€ íŒë‹¨í•˜ëŠ” í”„ë¡œì‹œì €
 CREATE OR REPLACE PROCEDURE IS_INTER_MEM 
 (
   member_num IN NUMBER 
@@ -455,14 +456,14 @@ IS
   general_member NUMBER;
   external_member NUMBER;
 BEGIN
-  -- member_numÀ» ¹Þ¾Æ¼­ TOTAL_MEMBERÅ×ÀÌºí¿¡¼­ external_member, general_member °¡Á®¿À±â.
+  -- member_numì„ ë°›ì•„ì„œ TOTAL_MEMBERí…Œì´ë¸”ì—ì„œ external_member, general_member ê°€ì ¸ì˜¤ê¸°.
   SELECT EXTER_M_NO, MEMBER_NO INTO external_member, general_member FROM TOTAL_MEMBER
   WHERE TOTAL_M_NO = member_num;
   
-  --¿ÜºÎÈ¸¿ø
+  --ì™¸ë¶€íšŒì›
   IF external_member IS NOT NULL THEN
   ret := false;    
-  --³»ºÎÈ¸¿ø 
+  --ë‚´ë¶€íšŒì› 
   ELSIF general_member IS NOT NULL THEN
   ret := true;
   ELSE
@@ -470,23 +471,23 @@ BEGIN
   END IF;
 END IS_INTER_MEM;
 /
--- ¿ÜºÎÈ¸¿ø Á¤º¸
-INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'È¸¿ø1', 'sohee@naver.com', 'naver', 343434343, 'gg');
-INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'È¸¿ø2', 'sohyun@google.com', 'google', 3434343, 'gg');
-INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'È¸¿ø3', 'ppoppy@kakao.co.kr', 'kakao', 43434343, 'gg');
+-- ì™¸ë¶€íšŒì› ì •ë³´
+INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'íšŒì›1', 'sohee@naver.com', 'naver', 343434343, 'gg');
+INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'íšŒì›2', 'sohyun@google.com', 'google', 3434343, 'gg');
+INSERT INTO EXTERNAL_M_INFO VALUES(EXTER_M_NO_SEQ.nextval, 'íšŒì›3', 'ppoppy@kakao.co.kr', 'kakao', 43434343, 'gg');
 
--- ³»ºÎÈ¸¿ø Á¤º¸ 
-INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, 'qlalfqjsgh3#', 'È¸¿ø4', 'sohyun@kogile.com');
-INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, '21341234', 'È¸¿ø5', 'ppoppy@kogile.com');
-INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, 'ghkdthgus', 'È¸¿ø6', 'Hwang_bee@kogile.com');
+-- ë‚´ë¶€íšŒì› ì •ë³´ 
+INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, 'qlalfqjsgh3#', 'íšŒì›4', 'sohyun@kogile.com');
+INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, '21341234', 'íšŒì›5', 'ppoppy@kogile.com');
+INSERT INTO INTER_M_INFO VALUES(MEM_NO_SEQ.nextval, 'ghkdthgus', 'íšŒì›6', 'Hwang_bee@kogile.com');
 
--- ¿¬µ¿Á¤º¸ <!-- ½ÃÄö½º ³Ö±â! -->
--- ¿¬µ¿Á¤º¸¿Í È¸¿ø¹øÈ£´Â PK°¡ µÈ´Ù. 
+-- ì—°ë™ì •ë³´ <!-- ì‹œí€€ìŠ¤ ë„£ê¸°! -->
+-- ì—°ë™ì •ë³´ì™€ íšŒì›ë²ˆí˜¸ëŠ” PKê°€ ëœë‹¤. 
 --INSERT INTO INTERLINKED_INFO VALUES(INTERLINKED_SEQ.nextval, 'fjdhejfkdekfndkenfkFEFDEFFFd', 1, 'naver');
 --INSERT INTO INTERLINKED_INFO VALUES(INTERLINKED_SEQ.nextval, 'fGfEfdfdEEfDFFEFDFEFDFkenfkd', 2, 'google');
 --INSERT INTO INTERLINKED_INFO VALUES(INTERLINKED_SEQ.nextval, 'fjdhejfkdEJNFJENKekfndkenfkd', 3, 'kakao');
 
--- ÀüÃ¼È¸¿ø Á¤º¸ <ÈÄ¿¡ ÀÚµ¿À¸·Î ³Ö¾îÁà¾ßÇÔ.>
+-- ì „ì²´íšŒì› ì •ë³´ <í›„ì— ìžë™ìœ¼ë¡œ ë„£ì–´ì¤˜ì•¼í•¨.>
 --INSERT INTO TOTAL_MEMBER VALUES(TOTAL_M_NO_SEQ.nextval, 1, null);
 --INSERT INTO TOTAL_MEMBER VALUES(TOTAL_M_NO_SEQ.nextval, 2, null);
 --INSERT INTO TOTAL_MEMBER VALUES(TOTAL_M_NO_SEQ.nextval, 3, null);
@@ -528,28 +529,28 @@ INSERT INTO PRJ_INFO VALUES(INFO_NO_SEQ.NEXTVAL,3);
 
 
 --POST
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®1-1',1,1,'Æ÷½ºÆ®1-1¿¡ ´ëÇÑ ¼³¸í',TO_DATE('20190220', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®2-1',1,2,'Æ÷½ºÆ®2-1¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190220', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®3-1',1,3, 'Æ÷½ºÆ®3-1¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190320', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®4-1',1,4, 'Æ÷½ºÆ®4-1¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190520', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®1-2',2,1, 'Æ÷½ºÆ®1-2¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190620', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®2-2',2,2, 'Æ÷½ºÆ®2-2¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190820', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®3-2',2,3, 'Æ÷½ºÆ®3-2¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190720', 'YYYYMMDD'));
-INSERT INTO post VALUES (post_seq.nextval,'Æ÷½ºÆ®4-2',2,4, 'Æ÷½ºÆ®4-2¿¡ ´ëÇÑ ¼³¸í', TO_DATE('20190920', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸1-1',1,1,'í¬ìŠ¤íŠ¸1-1ì— ëŒ€í•œ ì„¤ëª…',TO_DATE('20190220', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸2-1',1,2,'í¬ìŠ¤íŠ¸2-1ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190220', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸3-1',1,3, 'í¬ìŠ¤íŠ¸3-1ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190320', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸4-1',1,4, 'í¬ìŠ¤íŠ¸4-1ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190520', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸1-2',2,1, 'í¬ìŠ¤íŠ¸1-2ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190620', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸2-2',2,2, 'í¬ìŠ¤íŠ¸2-2ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190820', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸3-2',2,3, 'í¬ìŠ¤íŠ¸3-2ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190720', 'YYYYMMDD'));
+INSERT INTO post VALUES (post_seq.nextval,'í¬ìŠ¤íŠ¸4-2',2,4, 'í¬ìŠ¤íŠ¸4-2ì— ëŒ€í•œ ì„¤ëª…', TO_DATE('20190920', 'YYYYMMDD'));
 
 
 
 
 
 --reply
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®1-1¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,1,1);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®2-1¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,2,2);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®3-1¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,3,1);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®4-1¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,4,2);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®1-2¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,5,1);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®2-2¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,6,2);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®3-2¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,7,1);
-INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®4-2¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysdate,8,2);
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸1-1ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,1,1,'@íšŒì›2');
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸2-1ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,2,2,'@íšŒì›1');
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸3-1ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,3,1,'@íšŒì›2');
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸4-1ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,4,2,'@íšŒì›1');
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸1-2ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,5,1,null);
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸2-2ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,6,2,null);
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸3-2ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,7,1,null);
+INSERT INTO reply VALUES (reply_seq.nextval,'í¬ìŠ¤íŠ¸4-2ì— ëŒ€í•œ ì„¤ëª…ì˜ ëŒ“ê¸€',sysdate,8,2,null);
 
 
 
@@ -557,28 +558,25 @@ INSERT INTO reply VALUES (reply_seq.nextval,'Æ÷½ºÆ®4-2¿¡ ´ëÇÑ ¼³¸íÀÇ ´ñ±Û',sysda
 
 
 --TAG
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'1',1);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'2',2);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'3',1);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'4',2);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'5',1);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'6',2);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'7',1);
-INSERT INTO tag VALUES (TAG_SEQ.nextval,'8',2);
+INSERT INTO tag VALUES (TAG_SEQ.nextval,1,2);
+INSERT INTO tag VALUES (TAG_SEQ.nextval,2,1);
+INSERT INTO tag VALUES (TAG_SEQ.nextval,3,2);
+INSERT INTO tag VALUES (TAG_SEQ.nextval,4,1);
+
 
 
 
 
 
 --LABEL
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'»¡°­',1,1);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'ÁÖÈ²',2,1);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'³ë¶û',3,1);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'ÃÊ·Ï',4,1);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'»¡°­',1,2);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'ÁÖÈ²',2,2);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'³ë¶û',3,2);
-INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'ÃÊ·Ï',4,2);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Red',1,1);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Orange',2,1);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Yellow',3,1);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Green',4,1);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Red',1,2);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Orange',2,2);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Yellow',3,2);
+INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'Green',4,2);
 
 
 
@@ -589,22 +587,22 @@ INSERT INTO label VALUES (LABEL_NO_SEQ.nextval,'ÃÊ·Ï',4,2);
 
 
 --CHECKLIST
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®1-1 Ã¼Å©¸®½ºÆ®1',1);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®1-1 Ã¼Å©¸®½ºÆ®2',1);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®2-1 Ã¼Å©¸®½ºÆ®1',2);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®2-1 Ã¼Å©¸®½ºÆ®2',2);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®3-1 Ã¼Å©¸®½ºÆ®1',3);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®3-1 Ã¼Å©¸®½ºÆ®2',3);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®4-1 Ã¼Å©¸®½ºÆ®1',4);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®4-1 Ã¼Å©¸®½ºÆ®2',4);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®1-2 Ã¼Å©¸®½ºÆ®1',5);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®1-2 Ã¼Å©¸®½ºÆ®2',5);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®2-2 Ã¼Å©¸®½ºÆ®1',6);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®2-2 Ã¼Å©¸®½ºÆ®2',6);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®3-2 Ã¼Å©¸®½ºÆ®1',7);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®3-2 Ã¼Å©¸®½ºÆ®2',7);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®4-2 Ã¼Å©¸®½ºÆ®1',8);
-INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®4-2 Ã¼Å©¸®½ºÆ®2',8);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸1-1 ì²´í¬ë¦¬ìŠ¤íŠ¸1',1);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸1-1 ì²´í¬ë¦¬ìŠ¤íŠ¸2',1);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸2-1 ì²´í¬ë¦¬ìŠ¤íŠ¸1',2);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸2-1 ì²´í¬ë¦¬ìŠ¤íŠ¸2',2);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸3-1 ì²´í¬ë¦¬ìŠ¤íŠ¸1',3);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸3-1 ì²´í¬ë¦¬ìŠ¤íŠ¸2',3);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸4-1 ì²´í¬ë¦¬ìŠ¤íŠ¸1',4);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸4-1 ì²´í¬ë¦¬ìŠ¤íŠ¸2',4);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸1-2 ì²´í¬ë¦¬ìŠ¤íŠ¸1',5);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸1-2 ì²´í¬ë¦¬ìŠ¤íŠ¸2',5);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸2-2 ì²´í¬ë¦¬ìŠ¤íŠ¸1',6);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸2-2 ì²´í¬ë¦¬ìŠ¤íŠ¸2',6);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸3-2 ì²´í¬ë¦¬ìŠ¤íŠ¸1',7);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸3-2 ì²´í¬ë¦¬ìŠ¤íŠ¸2',7);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸4-2 ì²´í¬ë¦¬ìŠ¤íŠ¸1',8);
+INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'í¬ìŠ¤íŠ¸4-2 ì²´í¬ë¦¬ìŠ¤íŠ¸2',8);
 
 
 
@@ -612,32 +610,28 @@ INSERT INTO checklist VALUES (CHECKLIST_SEQ.nextval,'Æ÷½ºÆ®4-2 Ã¼Å©¸®½ºÆ®2',8);
 
 
 --LIST
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í1',0,1);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í2',0,2);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í3',0,3);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í4',0,4);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í5',0,5);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í6',0,6);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í7',0,7);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í8',0,8);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í9',0,9);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í10',0,10);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í11',0,11);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í12',0,12);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í13',0,13);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í14',0,14);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í15',0,15);
-INSERT INTO list VALUES (LIST_SEQ.nextval,'¸®½ºÆ®¼³¸í16',0,16);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…1',0,1);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…2',0,2);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…3',0,3);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…4',0,4);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…5',0,5);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…6',0,6);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…7',0,7);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…8',0,8);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…9',0,9);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…10',0,10);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…11',0,11);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…12',0,12);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…13',0,13);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…14',0,14);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…15',0,15);
+INSERT INTO list VALUES (LIST_SEQ.nextval,'ë¦¬ìŠ¤íŠ¸ì„¤ëª…16',0,16);
 
 
 
 
 
---NOTICE
-INSERT INTO NOTICE(NOTICE_NO, INVITE_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO) VALUES(NOTICE_SEQ.NEXTVAL, 1, 'ÃÊ´ëµÆÀ½!', SYSDATE, 1);
-INSERT INTO NOTICE(NOTICE_NO, TAG_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO) VALUES(NOTICE_SEQ.NEXTVAL, 2, 'ÅÂ±×µÆÀ½!', SYSDATE, 4);
 
-INSERT INTO NOTICE(NOTICE_NO, INVITE_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO) VALUES(NOTICE_SEQ.NEXTVAL, 3, 'ÃÊ´ëµÆÀ½!', SYSDATE, 5);
 
 --LABEL_INFO
 INSERT INTO LABEL_INFO VALUES(LABEL_INFO_NO_SEQ.NEXTVAL,1,1);
@@ -650,11 +644,11 @@ INSERT INTO CHARGE_INFO VALUES(CHARGE_INFO_NO_SEQ.NEXTVAL,2,1);
 INSERT INTO CHARGE_INFO VALUES(CHARGE_INFO_NO_SEQ.NEXTVAL,3,1);
 
 			   
---ÃÖ¿ë¶ô 20190116
+--ìµœìš©ë½ 20190116
 ALTER TABLE LABEL
     ADD CONSTRAINT PJTNO_LTEXT_CNO_UNIQUE UNIQUE(LABEL_TEXT, COLOR_NO, PJT_NO);
 			   
---±èÁØÇü 20190116
+--ê¹€ì¤€í˜• 20190116
 INSERT INTO INVITE VALUES (INVITE_SEQ.NEXTVAL, 'NORMAL', 1, 4);
 INSERT INTO INVITE VALUES (INVITE_SEQ.NEXTVAL, 'NORMAL', 1, 5);
 INSERT INTO INVITE VALUES (INVITE_SEQ.NEXTVAL, 'NORMAL', 1, 6);
@@ -663,7 +657,7 @@ INSERT INTO PRJ_INFO VALUES (INFO_NO_SEQ.NEXTVAL,4);
 INSERT INTO PRJ_INFO VALUES (INFO_NO_SEQ.NEXTVAL,5);
 INSERT INTO PRJ_INFO VALUES (INFO_NO_SEQ.NEXTVAL,6);
 
---ÃÖ¿ë¶ô 20190120
+--ìµœìš©ë½ 20190120
 insert all
 into card values(card_seq.nextval, 'To Do', 1, 2)
 into card values(card_seq.nextval+1, 'Doing', 2, 2)
@@ -678,11 +672,11 @@ into card values(card_seq.nextval+2, 'Done', 3, 3)
 into card values(card_seq.nextval+3,'Close', 4, 3)
 select * from dual;
 			   
---±è±Ù¿­ 20190122
+--ê¹€ê·¼ì—´ 20190122
 alter table invite
 add constraint pno_ino_unique unique(pjt_no, total_m_no);
 
---20190207 DB¼öÁ¤
+--20190207 DBìˆ˜ì •
 /*DROP SEQUENCE DESCRIPTION_SEQ;
 drop table description cascade constraints purge;
 DROP SEQUENCE D_DAY_NO_SEQ;
@@ -693,7 +687,7 @@ DROP TABLE CHAT CASCADE CONSTRAINTS PURGE;
 DROP SEQUENCE CHAT_NO;							
 DROP SEQUENCE CHAT_HIS_NO;*/
 		
---°øÁö»çÇ×°Ô½ÃÆÇ Å×ÀÌºí 20190208
+--ê³µì§€ì‚¬í•­ê²Œì‹œíŒ í…Œì´ë¸” 20190208
 DROP TABLE BOARD CASCADE CONSTRAINTS PURGE;
 DROP SEQUENCE BOARD_SEQ;
 
@@ -703,10 +697,11 @@ CREATE TABLE BOARD(
 B_NO NUMBER NOT NULL,
 B_TITLE VARCHAR2(100) NOT NULL,
 B_CONTENT VARCHAR2(1000) NOT NULL,
-INFO_NO NUMBER NOT NULL,
+INFO_NO NUMBER NULL,
 FNAME VARCHAR2(400) NULL,
 REGDATE DATE DEFAULT SYSDATE NOT NULL,
-UPDATE_DATE DATE DEFAULT SYSDATE NOT NULL);
+UPDATE_DATE DATE DEFAULT SYSDATE NOT NULL,
+PJT_NO NUMBER NOT NULL);
 
 ALTER TABLE BOARD
 ADD CONSTRAINT BOARD_BNO_PK PRIMARY KEY(B_NO);
@@ -714,9 +709,12 @@ ADD CONSTRAINT BOARD_BNO_PK PRIMARY KEY(B_NO);
 ALTER TABLE BOARD
 ADD CONSTRAINT BOARD_INFONO_FK FOREIGN KEY(INFO_NO)
 REFERENCES PRJ_INFO(INFO_NO) ON DELETE CASCADE;
+alter table board
+ADD CONSTRAINT BOARD_PJT_NO_FK FOREIGN KEY(PJT_NO)
+REFERENCES PROJECT(PJT_NO) ON DELETE CASCADE;
 
----- µÎ°³ÀÇ Å×ÀÌºí¿¡¼­ name, email°¡Á®¿À´Â Äõ¸® ¿¹Á¦
--- whereÀý ¾øÀ¸¸é ÀüÃ¼ ¸â¹ö Á¶È¸ÇÏ°ÔµÊ
+---- ë‘ê°œì˜ í…Œì´ë¸”ì—ì„œ name, emailê°€ì ¸ì˜¤ëŠ” ì¿¼ë¦¬ ì˜ˆì œ
+-- whereì ˆ ì—†ìœ¼ë©´ ì „ì²´ ë©¤ë²„ ì¡°íšŒí•˜ê²Œë¨
 /*(SELECT
 memberno, email, name
 FROM
@@ -730,7 +728,7 @@ EXTERNAL_M_INFO
 WHERE memberno = 2
 );*/
 
--- 2019 02 08 È²¼ÒÈñ Ã¤ÆÃ³»¿ª Å×ÀÌºí
+-- 2019 02 08 í™©ì†Œí¬ ì±„íŒ…ë‚´ì—­ í…Œì´ë¸”
 DROP TABLE tbl_chat CASCADE CONSTRAINTS PURGE;
 CREATE TABLE tbl_chat(
         chat_no number,
@@ -749,7 +747,7 @@ ALTER TABLE tbl_chat DROP CONSTRAINT tbl_chat_fk;*/
 ALTER TABLE tbl_chat add CONSTRAINT tbl_chat_pk PRIMARY KEY (chat_no);
 ALTER TABLE tbl_chat ADD CONSTRAINT tbl_chat_fk FOREIGN KEY (pjt_no) REFERENCES project(pjt_no)on delete cascade;
 
--- 2019 02 08 È²¼ÒÈñ ÇÁ·ÎÁ§Æ®º° Ã¤ÆÃ °³¼ö °ü¸® Å×ÀÌºí
+-- 2019 02 08 í™©ì†Œí¬ í”„ë¡œì íŠ¸ë³„ ì±„íŒ… ê°œìˆ˜ ê´€ë¦¬ í…Œì´ë¸”
 DROP TABLE tbl_chat_cnt;
 CREATE TABLE tbl_chat_cnt(
   pjt_no number,
@@ -761,3 +759,17 @@ ALTER TABLE tbl_chat_cnt DROP CONSTRAINT tbl_chatCnt_fk;*/
 
 ALTER TABLE tbl_chat_cnt add CONSTRAINT tbl_chatCnt_pk PRIMARY KEY (pjt_no);
 ALTER TABLE tbl_chat_cnt ADD CONSTRAINT tbl_chatCnt_fk FOREIGN KEY (pjt_no) REFERENCES project(pjt_no)on delete cascade;
+										 
+-- 20190224 ê¹€ê·¼ì—´
+alter table notice add (flag number default 1);
+
+										 --NOTICE
+INSERT INTO NOTICE(NOTICE_NO, INVITE_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO, FLAG) VALUES(NOTICE_SEQ.NEXTVAL, 1, 'ì´ˆëŒ€ëìŒ!', SYSDATE, 1, 1);
+INSERT INTO NOTICE(NOTICE_NO, TAG_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO, FLAG) VALUES(NOTICE_SEQ.NEXTVAL, 2, 'íƒœê·¸ëìŒ!', SYSDATE, 2, 1);
+
+INSERT INTO NOTICE(NOTICE_NO, INVITE_NO, NTC_CONT, NTC_DATE, TOTAL_M_NO, FLAG) VALUES(NOTICE_SEQ.NEXTVAL, 3, 'ì´ˆëŒ€ëìŒ!', SYSDATE, 5, 1);
+										 
+alter table board
+add(writer varchar2(100));
+										 
+										 
